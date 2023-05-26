@@ -1,13 +1,13 @@
-package com.example.MarcoTracker;
+package com.example.marcoTrackerEnd;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MarcoTrackerApplication {
+public class MarcoTrackerEndApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MarcoTrackerApplication.class, args);
+		SpringApplication.run(MarcoTrackerEndApplication.class, args);
 	}
 
 }

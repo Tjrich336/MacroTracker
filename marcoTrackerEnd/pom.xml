@@ -9,12 +9,12 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>MarcoTracker</artifactId>
+	<artifactId>marcoTrackerEnd</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>MarcoTracker</name>
-	<description>A simple API for tracking Marcos</description>
+	<name>marcoTrackerEnd</name>
+	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>20</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -43,11 +43,6 @@
 			<artifactId>reactor-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		    <dependency>
-        <groupId>com.google.firebase</groupId>
-        <artifactId>firebase-admin</artifactId>
-        <version>7.0.1</version>
-    </dependency>
 	</dependencies>
 
 	<build>

@@ -1,10 +1,10 @@
-package com.example.MarcoTracker;
+package com.example.marcoTrackerEnd;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MarcoTrackerApplicationTests {
+class MarcoTrackerEndApplicationTests {
 
 	@Test
 	void contextLoads() {
