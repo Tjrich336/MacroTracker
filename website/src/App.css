@@ -92,8 +92,8 @@ textarea {
 }
 
 body {
-  background-color: var(--body-color);
-  color: var(--text-color);
+  background-color: black;
+  color: darkgray;
 }
 
 h1, h2, h3 {
