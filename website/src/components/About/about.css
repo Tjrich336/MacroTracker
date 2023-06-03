@@ -1,0 +1,14 @@
+.about__title {
+    font-size: 50px;
+    font-weight: bold;
+    color: darkgray;
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.about__subtitle {
+    font-size: 15px;
+    color: darkgray;
+    text-align: center;
+    display: block;
+}

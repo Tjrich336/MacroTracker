@@ -1,8 +1,12 @@
 import React from 'react';
+import "./about.css";
 
 function About() {
   return (
-    <div>About</div>
+    <section className="about section" id="about">
+       <h2 className="about__title">About</h2>
+       <span className="about__subtitle">Contact</span>
+    </section>
   )
 }
 

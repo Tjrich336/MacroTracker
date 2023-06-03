@@ -1,0 +1,83 @@
+.landing__content {
+    grid-template-columns: 400px repeat(2,1fr);
+    padding-top: 2rem;
+    display: flex;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.landing__container {
+    display: contents;
+}
+
+.landing__message {
+    font-size: small;
+    color: white;
+    width: fit-content;
+    height: fit-content;
+    padding-top: 7rem;
+}
+
+.landing__img {
+    background: url(../../assets/futuristicHealth.png);
+    background-position: center;
+    background-size: cover;
+    box-shadow: inset 0 0 0 9px rgba(10, 10, 10, 0.433);
+    justify-self: center;
+    width: 1000px;
+    height: 400px;
+    display: content;
+}
+
+.button__icon {
+    color: aliceblue;
+}
+
+/* ===================== BREAKPOINTS ===================== */
+/*   For Large Devices   */
+
+@media screen and (max-width: 992px) {
+    .landing__container {
+        grid-template-columns: 100px repeat(2, 1fr);
+        column-gap: 1.25rem;
+    }
+
+    .landing__message {
+        max-width: initial;
+        margin-bottom: var(--mb-2-5);
+    }
+
+    .landing__img {
+        width: 250px;
+        height: 250px;
+        box-shadow: inset 0 0 0 8px rgb(255 255 255 / 30%);
+    }
+  }
+  
+  /*   For Medium Devices   */
+  @media screen and (max-width: 768px) {
+    .landing__container {
+        grid-template-columns: 0.5fr 3fr;
+        padding-top: 3.5rem;
+    }
+
+    .landing__img {
+        order: initial;
+        justify-self: initial;
+    }
+
+    .landing__img {
+        box-shadow: inset 0 0 0 6px rgb(255 255 255 / 30%);
+        width: 200px;
+        height: 200px;
+    }
+  }
+  
+  /*   For Small Devices   */
+  @media screen and (max-width: 350px) {
+    .landing__img {
+        width: 180px;
+        height: 180px;
+    }
+  }
+
