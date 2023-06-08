@@ -1,32 +1,33 @@
 import React from "react";
 import "./header.css";
+import { Link } from 'react-router-dom';
 
-const Header = () => {
+function Header () {
   return (
     <header className="header">
       <nav className="nav container">
-        <a href="index.html" className="nav__logo">
+        <a href="/" className="nav__logo">
           MacroTracker
         </a>
 
         <div className="nav__menu">
           <ul className="nav__list grid">
             <li className="nav__item">
-              <a href="#login" className="nav__link">
+              <Link to="/login" className="nav__link">
                 <i className="uil uil-estate nav__icon"></i> Login
-              </a>
+              </Link>
             </li>
 
             <li className="nav__item">
-              <a href="#healthfacts" className="nav__link">
+              <Link to="/healthfacts" className="nav__link">
                 <i className="uil uil-user nav__icon"></i> Health Facts
-              </a>
+              </Link>
             </li>
 
             <li className="nav__item">
-              <a href="#about" className="nav__link">
+              <Link to="/about" className="nav__link">
                 <i className="uil uil-file-alt nav__icon"></i> About
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
