@@ -6,9 +6,9 @@ function Header () {
   return (
     <header className="header">
       <nav className="nav container">
-        <a href="/" className="nav__logo">
+        <Link to="/" className="nav__logo">
           MacroTracker
-        </a>
+        </Link>
 
         <div className="nav__menu">
           <ul className="nav__list grid">
