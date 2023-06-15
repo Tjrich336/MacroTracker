@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { auth } from '../../firebase';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import "./login.css";
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import "./signup.css";
 
-function Login() {
+function Create() {
   const [Email, setEmail] = useState('');
   const [Password, setPassword] = useState('');
 
-  const signIn = (e) => {
+  const Create = (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth, Email, Password)
+    createUserWithEmailAndPassword(auth, Email, Password)
     .then((userCredential) => {
       console.log(userCredential);
     }).catch((error) => {
@@ -18,13 +18,10 @@ function Login() {
   };
 
   return (
-    <section className="login section" id="login">
-       <h2 className="login__title">Login</h2>
-       <span className="login__subtitle">Register An Account</span>
-
-      <section className="login__container">
-        <form onSubmit={signIn}>
-          <h1 className="login">Log Into Your Account</h1>
+    <section className="signup section" id="signup">
+       <section className="signup__container">
+        <form onSubmit={Create}>
+          <h1 className="signup">Create An Account</h1>
           <input className="email" type="Email: " 
                  placeholder="Enter Your Email " 
                  value={Email}
@@ -35,12 +32,12 @@ function Login() {
                  value={Password}
                  onChange={(e) => setPassword(e.target.value)}
           ></input>
-          <button className="login__button" type="Submit">Log In</button>
+          <button className="signup__button" type="Submit">Sign Up</button>
+
         </form>
-        <h2 className="register">Don't Have An Account? Register Today!</h2>
-      </section>
+       </section>
     </section>
   )
 }
 
-export default Login;
+export default Create;

@@ -1,0 +1,27 @@
+.signup {
+    padding-top: 5rem;
+    padding-left: 1rem;
+}
+
+.email {
+    margin-left: 1rem;
+    border-radius: 0.4rem;
+    color: black;
+    background-color: white;
+}
+
+.password {
+    margin-left: 0.5rem;
+    border-radius: 0.4rem;
+    color: black;
+    background-color: white; 
+}
+
+.signup__button {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 0.25rem;
+    margin-left: 1rem;
+    color: white;
+    background-color: rgb(90, 89, 89);
+}
