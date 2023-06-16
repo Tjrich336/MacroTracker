@@ -17,6 +17,10 @@ function Create() {
     });
   };
 
+  const handleButtonClick = () => {
+    window.location.href = '/userdashboard';
+  };
+
   return (
       <section className="signup section" id="signup">
         <h2 className="signup__title">Signup</h2>
@@ -34,7 +38,7 @@ function Create() {
                  value={Password}
                  onChange={(e) => setPassword(e.target.value)}
           ></input>
-          <button className="signup__button" type="Submit">Sign Up</button>
+          <button className="signup__button" type="Submit" onClick={handleButtonClick}>Sign Up</button>
         </form>
        </section>
     </section>

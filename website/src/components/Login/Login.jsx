@@ -18,6 +18,10 @@ function Login() {
     });
   };
 
+  const handleButtonClick = () => {
+    window.location.href = '/userdashboard';
+  };
+
   return (
     <section className="login section" id="login">
        <h2 className="login__title">Login</h2>
@@ -36,7 +40,7 @@ function Login() {
                  value={Password}
                  onChange={(e) => setPassword(e.target.value)}
           ></input>
-          <button className="login__button" type="Submit">Log In</button>
+          <button className="login__button" type="Submit" onClick={handleButtonClick}>Log In</button>
         </form>
         <Link to="/signup" className="register">
                 <i></i> Don't Have An Account? Register Today!

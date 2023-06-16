@@ -1,0 +1,25 @@
+.userdashboard__title {
+    font-size: 50px;
+    font-weight: bold;
+    color: darkgray;
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.userdashboard__subtitle {
+    font-size: 15px;
+    color: darkgray;
+    text-align: center;
+    display: block;
+}
+
+.signoutbutton {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    border-radius: 0.25rem;
+    color: white;
+    background-color: rgb(90, 89, 89);
+    box-shadow: inset 0 0 0 3px rgba(10, 10, 10, 0.433);
+}
