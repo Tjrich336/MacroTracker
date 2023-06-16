@@ -18,8 +18,10 @@ function Create() {
   };
 
   return (
-    <section className="signup section" id="signup">
-       <section className="signup__container">
+      <section className="signup section" id="signup">
+        <h2 className="signup__title">Signup</h2>
+        <span className="signup__subtitle">Register An Account</span>
+        <section className="signup__container">
         <form onSubmit={Create}>
           <h1 className="signup">Create An Account</h1>
           <input className="email" type="Email: " 
@@ -33,7 +35,6 @@ function Create() {
                  onChange={(e) => setPassword(e.target.value)}
           ></input>
           <button className="signup__button" type="Submit">Sign Up</button>
-
         </form>
        </section>
     </section>

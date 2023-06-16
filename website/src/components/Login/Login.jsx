@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { auth } from '../../firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { Link } from 'react-router-dom';
 import "./login.css";
 
 function Login() {
@@ -37,7 +38,9 @@ function Login() {
           ></input>
           <button className="login__button" type="Submit">Log In</button>
         </form>
-        <h2 className="register">Don't Have An Account? Register Today!</h2>
+        <Link to="/signup" className="register">
+                <i></i> Don't Have An Account? Register Today!
+        </Link>
       </section>
     </section>
   )
