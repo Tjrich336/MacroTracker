@@ -2,14 +2,23 @@ import React, { useState } from 'react';
 import { auth } from '../../firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useHistory, Link } from 'react-router-dom';
-
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './login.css';
+
+library.add(faEye, faEyeSlash);
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false); 
   const [error, setError] = useState('');
   const history = useHistory();
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   const signIn = (e) => {
     e.preventDefault();
@@ -20,7 +29,7 @@ function Login() {
         history.push('/userdashboard');
       })
       .catch((error) => {
-        setError('Email And Password Combination Do Not Match!');
+        setError('Email and password combination do not match!');
         console.log(error);
       });
   };
@@ -40,13 +49,22 @@ function Login() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <input
-            className="password"
-            type="password"
-            placeholder="Enter Your Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <div className="password-container">
+            <input
+              className="password"
+              type={showPassword ? 'text' : 'password'} 
+              placeholder="Enter Your Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            {password && ( 
+              <FontAwesomeIcon
+                icon={showPassword ? faEyeSlash : faEye}
+                className="password-toggle"
+                onClick={togglePasswordVisibility}
+              />
+            )}
+          </div>
           {error && <p className="error">{error}</p>}
           <button className="login__button" type="submit">
             Log In
