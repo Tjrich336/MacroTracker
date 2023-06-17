@@ -25,7 +25,8 @@ function Signup() {
     <section className="signup section" id="signup">
       <h2 className="signup__title">Signup</h2>
       <span className="signup__subtitle">Register An Account</span>
-      <section className="signup__container">
+
+       <div className="login__main-box">
         <form onSubmit={Create}>
           <h1 className="signup">Create An Account</h1>
           <input
@@ -49,7 +50,7 @@ function Signup() {
         <Link to="/login" className="login__toggle">
                 <i></i> Already Have An Account? Login!
         </Link>
-      </section>
+      </div>
     </section>
   );
 }

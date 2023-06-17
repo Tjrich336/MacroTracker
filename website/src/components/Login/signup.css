@@ -14,7 +14,7 @@
 }
 
 .signup {
-    padding-top: 5rem;
+    padding-top: 2rem;
     text-align: center;
     padding-bottom: 1rem;
 }
@@ -62,4 +62,17 @@
     font-weight: lighter;
     text-align: center;
     color: darkgray;
+    padding-bottom: 2rem;
+}
+
+.login__main-box {
+    border: 3px solid darkgray;
+    border-radius: 8px;
+    margin-left: 22rem;
+    margin-right: 22rem;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
