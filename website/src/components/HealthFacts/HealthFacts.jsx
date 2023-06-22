@@ -49,6 +49,30 @@ const facts = [
   {
     fact: "Maintaining a healthy work-life balance is crucial for reducing stress, improving mental well-being, and preventing burnout.",
     source: "World Health Organization",
+  },
+  {
+    fact: "Eating a variety of colorful fruits and vegetables provides essential vitamins, minerals, and antioxidants that promote good health.",
+    source: "American Heart Association",
+  },
+  {
+    fact: "Regular stretching exercises improve flexibility, prevent muscle stiffness, and reduce the risk of injuries.",
+    source: "American Council on Exercise",
+  },
+  {
+    fact: "Practicing deep breathing exercises can help reduce stress, lower blood pressure, and improve lung function.",
+    source: "American Lung Association",
+  },
+  {
+    fact: "Getting regular eye exams can detect vision problems early and prevent potential eye diseases.",
+    source: "American Academy of Ophthalmology",
+  },
+  {
+    fact: "Laughing has numerous health benefits, including boosting the immune system, relieving pain, and reducing stress.",
+    source: "Mayo Clinic",
+  },
+  {
+    fact: "Maintaining good posture while sitting and standing improves spinal alignment and reduces the risk of back pain.",
+    source: "American Chiropractic Association",
   }
 ];
 
@@ -56,12 +80,16 @@ function HealthFacts() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const handlePrevSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide === 0 ? Math.ceil(facts.length / 3) - 1 : prevSlide - 1));
+    setCurrentSlide((prevSlide) =>
+      prevSlide === 0 ? Math.ceil(facts.length / 3) - 1 : prevSlide - 1
+    );
   };
-  
+
   const handleNextSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide === Math.ceil(facts.length / 3) - 1 ? 0 : prevSlide + 1));
-  };
+    setCurrentSlide((prevSlide) =>
+      prevSlide === Math.ceil(facts.length / 3) - 1 ? 0 : prevSlide + 1
+    );
+  };  
 
   return (
     <section className="healthfacts section" id="healthfacts">
@@ -98,13 +126,13 @@ function HealthFacts() {
           </li>
         </ul>
 
-        <h3 className="carousel__title">Health Facts Carousel</h3>
-        <div className={`healthfacts__carousel ${currentSlide === 0 ? '' : 'translate-left'} ${currentSlide === Math.ceil(facts.length / 3) - 1 ? '' : 'translate-right'}`}>
+        <h3 className="carousel__title">Did you know?</h3>
+        <div className={`healthfacts__carousel ${currentSlide === 0 ? '' : 'translate-left'} ${currentSlide === Math.ceil(facts.length / 3) ? '' : 'translate-right'}`}>
           {facts.slice(currentSlide * 3, currentSlide * 3 + 3).map((fact, index) => (
-          <div key={index} className="healthfacts__fact">
-          <p>{fact.fact}</p>
-          <p className="healthfacts__fact-source">(Source: {fact.source})</p>
-        </div>
+            <div key={index} className={`healthfacts__fact ${index === 1 ? 'center-item' : ''}`}>
+              <p>{fact.fact}</p>
+              <p className="healthfacts__fact-source">(Source: {fact.source})</p>
+            </div>
           ))}
         </div>
 

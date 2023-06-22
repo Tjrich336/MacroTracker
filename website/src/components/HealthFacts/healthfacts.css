@@ -1,111 +1,106 @@
 .healthfacts__title {
-    font-size: 50px;
-    font-weight: bold;
-    color: darkgray;
-    text-align: center;
-    margin-top: 2rem;
-  }
-  
-  .healthfacts__subtitle {
-    font-size: 15px;
-    color: darkgray;
-    text-align: center;
-    display: block;
-  }
-  
-  .content__title {
-    margin-top: 3rem;
-    color: darkgray;
-    text-align: center;
-    font-size: large;
-    font-weight: bolder;
-  }
-  
-  .healthfacts__content {
-    margin-top: 1rem;
-    text-align: center;
-    color: white;
-    margin-left: 10rem;
-    margin-right: 10rem;
-  }
+  font-size: 50px;
+  font-weight: bold;
+  color: darkgray;
+  text-align: center;
+  margin-top: 2rem;
+}
 
-  .para__content {
-    margin-top: 1rem;
-  }
+.healthfacts__subtitle {
+  font-size: 15px;
+  color: darkgray;
+  text-align: center;
+  display: block;
+}
 
-  .para__facts {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  }
+.content__title {
+  margin-top: 3rem;
+  color: darkgray;
+  text-align: center;
+  font-size: large;
+  font-weight: bolder;
+}
 
-  .category {
-    display: center;
-    font-weight: bold;
-    color: darkgray;
-    font-size: large;
-    text-decoration:underline rgb(91, 90, 90);
-    font-style: italic;
-  }
+.healthfacts__content {
+  margin-top: 1rem;
+  text-align: center;
+  color: white;
+  margin-left: 10rem;
+  margin-right: 10rem;
+}
 
-  .cat__content {
-    display: block;
-    text-align: center;
-    margin-top: 0.5rem;
-    margin-left: 13rem;
-    margin-right: 13rem;
-  }
+.para__content {
+  margin-top: 1rem;
+}
 
-  .cat-content {
-    margin-left: 1rem;
-    white-space: nowrap;
-  }
+.para__facts {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
 
-  .carousel__title {
-    margin-top: 2rem;
-    color: darkgray;
-    font-size: large;
-  }
-  
-  .healthfacts__carousel {
-    display: flex;
-    justify-content: center; /* Center the slideshow */
-    overflow: hidden;
-    transition: transform 0.8s ease; /* Adjusted transition duration */
-  }
-  
-  .healthfacts__carousel.translate-left {
-    transform: translateX(-100%); /* Adjusted translation value for full width */
-  }
-  
-  .healthfacts__carousel.translate-right {
-    transform: translateX(0); /* Adjusted translation value for initial position */
-  }
-  
-  .healthfacts__fact {
-    width: 100%; /* Set width to full width */
-    box-sizing: border-box;
-    transition: transform 0.8s ease; /* Adjusted transition duration */
-    border: 2px solid white;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    margin: 0.5rem 1rem; /* Adjusted margin for spacing */
-    display: inline-block;
-    vertical-align: top;
-    text-align: center; /* Center the content */
-  }
-  
-  .healthfacts__fact p {
-    margin: 0;
-  }
-  
-  .healthfacts__fact-source {
-    font-size: 12px;
-    color: #666;
-  }
-  
-  .carousel__button {
-    margin-top: 1rem;
-  }
-  
-  
-  
+.category {
+  display: center;
+  font-weight: bold;
+  color: darkgray;
+  font-size: large;
+  text-decoration: underline rgb(91, 90, 90);
+  font-style: italic;
+}
+
+.cat__content {
+  display: block;
+  text-align: center;
+  margin-top: 0.5rem;
+  margin-left: 13rem;
+  margin-right: 13rem;
+}
+
+.cat-content {
+  margin-left: 1rem;
+  white-space: nowrap;
+}
+
+.carousel__title {
+  margin-top: 2rem;
+  color: darkgray;
+  font-size: large;
+}
+
+.healthfacts__carousel {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.healthfacts__carousel.translate-left {
+  transform: translateX(-100%);
+}
+
+.healthfacts__carousel.translate-right {
+  transform: translateX(0);
+}
+
+.healthfacts__fact {
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin: 0.5rem 1rem;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+}
+
+.healthfacts__fact p {
+  margin: 0;
+}
+
+.healthfacts__fact-source {
+  font-size: 12px;
+  color: #666;
+}
+
+.carousel__button {
+  margin-top: 1rem;
+}
