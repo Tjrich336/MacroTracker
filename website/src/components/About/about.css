@@ -12,3 +12,54 @@
     text-align: center;
     display: block;
 }
+
+.content__title {
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+}
+
+.content {
+    color: white;
+    text-align: center;
+    margin-top: 1rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
+}
+
+.team {
+    margin-top: 2rem;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+}
+
+.team__content {
+    margin-top: 1rem;
+    text-align: center;
+    color: white;
+    text-decoration: underline;
+}
+
+.disclaimer {
+    margin-top: 2rem;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+}
+
+.disclaimer__content {
+    color: white;
+    text-align: center;
+    font-size: smaller;
+    margin-top: 1rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
+}
+
+.contact {
+    margin-top: 2rem;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+}
