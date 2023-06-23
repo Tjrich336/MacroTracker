@@ -11,11 +11,13 @@
 }
 
 .landing__message {
-    font-size: small;
+    font-size: medium;
+    font-weight: normal;
     color: white;
     width: fit-content;
     height: fit-content;
-    padding-top: 9rem;
+    padding-top: 7rem;
+    text-align: center;
 }
 
 .landing__img {
