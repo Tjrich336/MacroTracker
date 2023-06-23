@@ -1,7 +1,22 @@
-import React from 'react';
+import {React, useRef} from 'react';
+import emailjs from "@emailjs/browser";
 import './about.css';
 
 function About() {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_pm05h5g', 'template_5k7zx1t', form.current, 'zPlHrUPHpcqFdo9XC')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+      e.target.reset()
+  };
+
   return (
     <section className="about section" id="about">
       <h2 className="about__title">About</h2>
@@ -29,7 +44,12 @@ function About() {
             <p className="team__content">Brandon Hach</p>
 
           <h6 className="contact">Reach Out!</h6>
-          
+          <form ref={form} onSubmit={sendEmail} className="form">
+            <input type="text" className="userName" placeholder="Full Name" name="user__name" required/>
+            <input type="email" className="userEmail" placeholder="Email" name="user__email" required/>
+            <input type="message" className="userMessage"placeholder="Message" name="user__message" required/>
+            <button type="submit" className="send__button">Send Message</button>
+          </form>
 
       </div>
     </section>
