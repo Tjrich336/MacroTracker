@@ -1,8 +1,9 @@
-import React from "react";
 import "./header.css";
 import { Link } from 'react-router-dom';
+import React, { useState } from "react";
 
-function Header () {
+function Header ({ onSignOut, authUser }) {
+  const [isHovered, setIsHovered] = useState(false);
   return (
     <header className="header">
       <nav className="nav container">
@@ -28,6 +29,25 @@ function Header () {
               <Link to="/about" className="nav__link">
                 <i className="uil uil-file-alt nav__icon"></i> About
               </Link>
+            </li>
+
+            {/* Moved sign-out button to Header */}
+            <li className="nav__item">
+                  {authUser && (
+                  <>
+                    <button id="signbutton" 
+                      onMouseEnter={() => setIsHovered(true)}
+                      onMouseLeave={() => setIsHovered(false)}
+                      onClick={onSignOut}>
+                      Sign Out
+                    </button>
+                    <p 
+                      id="signedStatus" 
+                      className={isHovered ? 'show' : ''} >
+                        {`Signed In as ${authUser.email}`}
+                    </p>
+                  </>
+                )}
             </li>
           </ul>
         </div>

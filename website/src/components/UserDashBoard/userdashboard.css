@@ -1,25 +1,103 @@
 .userdashboard__title {
-    font-size: 50px;
-    font-weight: bold;
-    color: darkgray;
-    text-align: center;
-    margin-top: 5rem;
+	font-size: 50px;
+	font-weight: bold;
+	color: darkgray;
+	text-align: center;
+	margin-top: 1rem;
 }
 
 .userdashboard__subtitle {
-    font-size: 15px;
-    color: darkgray;
-    text-align: center;
-    display: block;
+	font-size: 15px;
+	color: darkgray;
+	text-align: center;
+	display: block;
+	padding-bottom: 2rem;
 }
 
 .signoutbutton {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
-    border-radius: 0.25rem;
-    color: white;
-    background-color: rgb(90, 89, 89);
-    box-shadow: inset 0 0 0 3px rgba(10, 10, 10, 0.433);
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-top: 0.25rem;
+	padding-bottom: 0.25rem;
+	border-radius: 0.25rem;
+	color: white;
+	background-color: rgb(90, 89, 89);
+	box-shadow: inset 0 0 0 3px rgba(10, 10, 10, 0.433);
+}
+
+/* sd */
+.dashboard-boxes {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+	justify-items: center;
+	align-items: center;
+	width: 100%;
+	max-width: 2400px; /* adjusted to fit larger boxes */
+	margin: 0 auto;
+	background-size: cover;
+	background-position: center;
+}
+
+.dashboard-box {
+	width: 300px;
+	height: 300px;
+	border: 1px solid #000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: border-color 0.3s ease;
+	font-size: 50px;
+	font-weight: 500;
+	color: chocolate;
+	border-radius: 10px;
+}
+
+.dashboard-box:hover {
+	border-color: chocolate;
+}
+
+.dashboard-box-0 {
+	background: url("../../assets/modal1.jpg") no-repeat center center / cover;
+}
+
+.dashboard-box-1 {
+	background: url("../../assets/modal2.jpg") no-repeat center center / cover;
+}
+
+.dashboard-box-2 {
+	background: url("../../assets/modal3.jpg") no-repeat center center / cover;
+}
+
+.dashboard-box-3 {
+	background: url("../../assets/modal4.jpg") no-repeat center center / cover;
+}
+
+.dashboard-box-4 {
+	background: url("../../assets/modal5.jpg") no-repeat center center / cover;
+}
+
+.dashboard-box-5 {
+	background: url("../../assets/modal6.jpg") no-repeat center center / cover;
+}
+
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 50px;
+	box-sizing: border-box;
+}
+
+.modal > div {
+	background-color: #fff;
+	padding: 20px;
+	max-width: 500px;
+	width: 100%;
 }
