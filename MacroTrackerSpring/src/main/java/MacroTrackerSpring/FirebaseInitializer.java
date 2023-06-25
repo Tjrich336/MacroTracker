@@ -6,8 +6,8 @@ import com.google.firebase.FirebaseOptions;
 import com.google.firebase.FirebaseOptions.Builder;
 import com.google.firebase.cloud.FirestoreClient;
 import com.google.cloud.firestore.Firestore;
-import java.io.FileInputStream;
 
+import java.io.FileInputStream;
 import javax.annotation.PostConstruct;
 
 import org.springframework.stereotype.Service;
@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class FirebaseInitializer {
 
+    // direct api call setup to firebase
     @PostConstruct
     public void initialize() {
         try {
@@ -36,4 +37,5 @@ public class FirebaseInitializer {
     public Firestore getDatabase() {
         return FirestoreClient.getFirestore();
     }
+
 }
