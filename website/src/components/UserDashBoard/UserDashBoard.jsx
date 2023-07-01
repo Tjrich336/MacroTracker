@@ -1,8 +1,8 @@
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
-import { auth } from '../../firebase'; // Import the Firebase Auth and Realtime Database
+import { auth } from '../../firebase';
 import { useHistory } from 'react-router-dom';
-import { getDatabase, ref, push, set } from 'firebase/database'; // Import the Firebase Realtime Database functions
+import { getDatabase, ref, push, set, remove, onValue } from 'firebase/database';
 import './userdashboard.css';
 
 function UserDashboard() {
@@ -15,22 +15,42 @@ function UserDashboard() {
     carbs: '',
     fats: ''
   });
+  const [error, setError] = useState('');
+  const [foodItems, setFoodItems] = useState([]);
   const history = useHistory();
-  const db = getDatabase(); // Create a database reference
+  const db = getDatabase();
 
   useEffect(() => {
+    const loadFoodItems = (user) => {
+      const email = user.email.replace(/\./g, '_');
+      const foodRef = ref(db, `Users/${email}/Food`);
+      onValue(foodRef, (snapshot) => {
+        const items = [];
+        snapshot.forEach((childSnapshot) => {
+          const item = {
+            key: childSnapshot.key,
+            ...childSnapshot.val()
+          };
+          items.push(item);
+        });
+        setFoodItems(items);
+      });
+    };
+
     const listen = onAuthStateChanged(auth, (user) => {
       if (user) {
         setAuthUser(user);
+        loadFoodItems(user);
       } else {
         setAuthUser(null);
+        setFoodItems([]);
       }
     });
 
     return () => {
       listen();
     };
-  }, []);
+  }, [db]);
 
   const userSignOut = () => {
     signOut(auth)
@@ -54,6 +74,7 @@ function UserDashboard() {
       carbs: '',
       fats: ''
     });
+    setError('');
   };
 
   const handleChange = (e) => {
@@ -65,9 +86,19 @@ function UserDashboard() {
   };
 
   const handleSubmit = () => {
-    // Store the entered food details in the Firebase Realtime Database
+    if (
+      !foodDetails.name ||
+      !foodDetails.calories ||
+      !foodDetails.protein ||
+      !foodDetails.carbs ||
+      !foodDetails.fats
+    ) {
+      setError('Please Fill In All Fields!');
+      return;
+    }
+
     if (authUser) {
-      const email = authUser.email.replace(/\./g, '_'); // Replace "." with "_"
+      const email = authUser.email.replace(/\./g, '_');
       const foodRef = push(ref(db, `Users/${email}/Food/${foodDetails.name}`));
       set(foodRef, {
         calories: foodDetails.calories,
@@ -86,11 +117,25 @@ function UserDashboard() {
     handleCloseModal();
   };
 
+  const handleRemoveFood = (name) => {
+    if (authUser) {
+      const email = authUser.email.replace(/\./g, '_');
+      const foodRef = ref(db, `Users/${email}/Food/${name}`);
+      remove(foodRef)
+        .then(() => {
+          console.log('Food item removed successfully');
+        })
+        .catch((error) => {
+          console.log('Error removing food item:', error);
+        });
+    }
+  };
+
   return (
     <section className="userdashboard section" id="userdashboard">
       <h2 className="userdashboard__title">User Dashboard</h2>
       <span className="userdashboard__subtitle">Welcome</span>
-
+  
       <div>
         {authUser ? (
           <>
@@ -106,11 +151,12 @@ function UserDashboard() {
           <p>Signed Out</p>
         )}
       </div>
-
+  
       {isAddingFood && (
         <div className="modal__overlay">
           <div className="modal">
             <h3>Add Food</h3>
+            {error && <p className="error-message">{error}</p>}
             <input
               type="text"
               name="name"
@@ -153,8 +199,41 @@ function UserDashboard() {
           </div>
         </div>
       )}
+  
+  <div>
+  <h3>Food Items</h3>
+  {foodItems.length > 0 ? (
+    <table className="food-items-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Calories</th>
+          <th>Protein</th>
+          <th>Carbs</th>
+          <th>Fats</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {foodItems.map((foodItem) => (
+          <tr key={foodItem.key}>
+            <td>{foodItem.name}</td>
+            <td>{foodItem.calories}</td>
+            <td>{foodItem.protein}</td>
+            <td>{foodItem.carbs}</td>
+            <td>{foodItem.fats}</td>
+            <td>
+              <button onClick={() => handleRemoveFood(foodItem.key)}>Remove</button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  ) : null}
+  {foodItems.length === 0 && <p>No food items found.</p>}
+</div>
     </section>
-  );
+  );  
 }
 
 export default UserDashboard;
