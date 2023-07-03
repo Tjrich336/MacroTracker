@@ -4,6 +4,9 @@ import { auth } from '../../firebase';
 import { useHistory } from 'react-router-dom';
 import { getDatabase, ref, push, set, remove, onValue } from 'firebase/database';
 import './userdashboard.css';
+import PieChart from '../Charts/PieChart';
+import SimpleBarChart from '../Charts/SimpleBarChart';
+
 
 function UserDashboard() {
   const [authUser, setAuthUser] = useState(null);
@@ -135,7 +138,12 @@ function UserDashboard() {
     <section className="userdashboard section" id="userdashboard">
       <h2 className="userdashboard__title">User Dashboard</h2>
       <span className="userdashboard__subtitle">Welcome</span>
-  
+      {/**TESTING */}
+      <div>      
+        <PieChart></PieChart>
+        <SimpleBarChart></SimpleBarChart>
+      </div>
+
       <div>
         {authUser ? (
           <>
@@ -199,8 +207,9 @@ function UserDashboard() {
           </div>
         </div>
       )}
-  
+
   <div>
+  
   <h3>Food Items</h3>
   {foodItems.length > 0 ? (
     <table className="food-items-table">
