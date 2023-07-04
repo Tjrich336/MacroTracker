@@ -29,16 +29,21 @@ function UserDashboard() {
       const foodRef = ref(db, `Users/${email}/Food`);
       onValue(foodRef, (snapshot) => {
         const items = [];
-        snapshot.forEach((childSnapshot) => {
-          const item = {
-            key: childSnapshot.key,
-            ...childSnapshot.val()
-          };
-          items.push(item);
+        snapshot.forEach((foodSnapshot) => {
+          foodSnapshot.forEach((childSnapshot) => {
+            const item = {
+              key: childSnapshot.key,
+              name: foodSnapshot.key,
+              ...childSnapshot.val()
+            };
+            items.push(item);
+          });
         });
+        console.log('Items:', items);
         setFoodItems(items);
       });
     };
+    
 
     const listen = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -134,14 +139,59 @@ function UserDashboard() {
     }
   };
 
+  /**
+   *  Fetch total marco-nutrient from user's database 
+   *  Serializable data used for Charts
+   *  */ 
+  const [totalMarco, setTotalMarco] = useState({fat:0, protein: 0, carbs: 0})
+
+  useEffect(() => {
+    let totalFat = 0;
+    let totalProtein = 0;
+    let totalCarbs = 0;
+
+
+    foodItems.forEach(item => {
+      console.log(item)
+      totalFat += Number(item.fats);
+      totalProtein += Number(item.protein);
+      totalCarbs += Number(item.carbs)
+    })
+
+    setTotalMarco({fat: totalFat, protein: totalProtein, carbs: totalCarbs})
+  }, [foodItems])
+
+    /**
+   *  Fetch total marco-nutrient from user's database 
+   *  Serializable data used for Charts
+   *  */ 
+
+    const [totalCal, setTotalCal] = useState({calories: 0})
+
+    useEffect(() => {
+      let totalFat = 0;
+      let totalProtein = 0;
+      let totalCarbs = 0;
+  
+  
+      foodItems.forEach(item => {
+        console.log(item)
+        totalFat += Number(item.fats);
+        totalProtein += Number(item.protein);
+        totalCarbs += Number(item.carbs)
+      })
+  
+      setTotalCal({fat: totalFat, protein: totalProtein, carbs: totalCarbs})
+    }, [foodItems])
+
   return (
     <section className="userdashboard section" id="userdashboard">
       <h2 className="userdashboard__title">User Dashboard</h2>
       <span className="userdashboard__subtitle">Welcome</span>
       {/**TESTING */}
       <div>      
-        <PieChart></PieChart>
-        <SimpleBarChart></SimpleBarChart>
+        <PieChart data={totalMarco}></PieChart>
+        <SimpleBarChart data={totalMarco}></SimpleBarChart>
       </div>
 
       <div>
