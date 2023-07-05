@@ -27,15 +27,18 @@ function UserDashboard() {
       onValue(foodRef, (snapshot) => {
         const items = [];
         snapshot.forEach((childSnapshot) => {
-          const item = {
-            key: childSnapshot.key,
-            ...childSnapshot.val()
-          };
-          items.push(item);
+          childSnapshot.forEach((grandchildSnapshot) => {
+            const item = {
+              key: grandchildSnapshot.key,
+              name: grandchildSnapshot.key,
+              ...grandchildSnapshot.val()
+            };
+            items.push(item);
+          });
         });
         setFoodItems(items);
       });
-    };
+    };    
 
     const listen = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -99,12 +102,14 @@ function UserDashboard() {
 
     if (authUser) {
       const email = authUser.email.replace(/\./g, '_');
-      const foodRef = push(ref(db, `Users/${email}/Food/${foodDetails.name}`));
+      const foodRef = push(ref(db, `Users/${email}/Food`));
       set(foodRef, {
-        calories: foodDetails.calories,
-        protein: foodDetails.protein,
-        carbs: foodDetails.carbs,
-        fats: foodDetails.fats
+        [foodDetails.name]: {
+          calories: foodDetails.calories,
+          protein: foodDetails.protein,
+          carbs: foodDetails.carbs,
+          fats: foodDetails.fats
+        }
       })
         .then(() => {
           console.log('Food details stored successfully');
@@ -113,9 +118,10 @@ function UserDashboard() {
           console.log('Error storing food details:', error);
         });
     }
-
+  
     handleCloseModal();
   };
+  
 
   const handleRemoveFood = (name) => {
     if (authUser) {
@@ -203,36 +209,38 @@ function UserDashboard() {
   <div>
   <h3>Food Items</h3>
   {foodItems.length > 0 ? (
-    <table className="food-items-table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Calories</th>
-          <th>Protein</th>
-          <th>Carbs</th>
-          <th>Fats</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        {foodItems.map((foodItem) => (
+    <div className="table-container">
+      <table className="food-items-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Calories</th>
+            <th>Protein</th>
+            <th>Carbs</th>
+            <th>Fats</th>
+          </tr>
+        </thead>
+        <tbody>
+          {foodItems.map((foodItem) => (
           <tr key={foodItem.key}>
-            <td>{foodItem.name}</td>
-            <td>{foodItem.calories}</td>
-            <td>{foodItem.protein}</td>
-            <td>{foodItem.carbs}</td>
-            <td>{foodItem.fats}</td>
+            <td>{foodItem.name || ''}</td>
+            <td>{foodItem.calories || ''}</td>
+            <td>{foodItem.protein || ''}</td>
+            <td>{foodItem.carbs || ''}</td>
+            <td>{foodItem.fats || ''}</td>
             <td>
-              <button onClick={() => handleRemoveFood(foodItem.key)}>Remove</button>
+            <button onClick={() => handleRemoveFood(foodItem.key)}>Remove</button>
             </td>
           </tr>
-        ))}
-      </tbody>
-    </table>
-  ) : null}
-  {foodItems.length === 0 && <p>No food items found.</p>}
-</div>
-    </section>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  ) : (
+    <p>No food items found.</p>
+    )}
+    </div>
+  </section>
   );  
 }
 
