@@ -6,12 +6,18 @@ function Header () {
   return (
     <header className="header">
       <nav className="nav container">
-        <Link to="/" className="nav__logo">
+        <ul className="nav__logo">
           MacroTracker
-        </Link>
+        </ul>
 
         <div className="nav__menu">
           <ul className="nav__list grid">
+            <li className="nav__item">
+              <Link to="/" className="nav__link">
+                <i className="uil uil-estate nav__icon"></i> Home
+              </Link>
+            </li>
+
             <li className="nav__item">
               <Link to="/login" className="nav__link">
                 <i className="uil uil-estate nav__icon"></i> Login

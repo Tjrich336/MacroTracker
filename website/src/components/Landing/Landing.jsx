@@ -3,7 +3,7 @@ import './landing.css';
 
 const Landing = () => {
   const handleButtonClick = () => {
-    window.location.href = '/login';
+    window.location.href = '/signup';
   };
 
   return (

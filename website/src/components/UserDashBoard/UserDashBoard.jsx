@@ -17,6 +17,13 @@ function UserDashboard() {
   });
   const [error, setError] = useState('');
   const [foodItems, setFoodItems] = useState([]);
+  const [isSettingMacroGoals, setIsSettingMacroGoals] = useState(false);
+  const [macroGoalDetails, setMacroGoalDetails] = useState({
+    calories: '',
+    protein: '',
+    carbs: '',
+    fats: ''
+  });
   const history = useHistory();
   const db = getDatabase();
 
@@ -30,7 +37,7 @@ function UserDashboard() {
           childSnapshot.forEach((grandchildSnapshot) => {
             const item = {
               key: grandchildSnapshot.key,
-              name: grandchildSnapshot.key,
+              name: childSnapshot.key,
               ...grandchildSnapshot.val()
             };
             items.push(item);
@@ -38,7 +45,7 @@ function UserDashboard() {
         });
         setFoodItems(items);
       });
-    };    
+    };
 
     const listen = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -88,6 +95,71 @@ function UserDashboard() {
     }));
   };
 
+  const handleSetMacroGoals = () => {
+    setIsSettingMacroGoals(true);
+  };
+
+  const handleCloseMacroGoals = () => {
+    setIsSettingMacroGoals(false);
+    setMacroGoalDetails({
+      calories: '',
+      protein: '',
+      carbs: '',
+      fats: ''
+    });
+  };
+
+  const handleMacroGoalChange = (e) => {
+    const { name, value } = e.target;
+    setMacroGoalDetails((prevMacroGoalDetails) => ({
+      ...prevMacroGoalDetails,
+      [name]: value
+    }));
+  };
+
+  const handleSaveMacroGoals = () => {
+    if (
+      !macroGoalDetails.calories ||
+      !macroGoalDetails.protein ||
+      !macroGoalDetails.carbs ||
+      !macroGoalDetails.fats
+    ) {
+     setError('Please Fill In All Fields!');
+      return;
+    }
+
+    if (authUser) {
+      const email = authUser.email.replace(/\./g, '_');
+      const macroGoalsRef = ref(db, `Users/${email}/MacroGoals`);
+      set(macroGoalsRef, macroGoalDetails)
+        .then(() => {
+          console.log('Macro goals saved successfully');
+        })
+        .catch((error) => {
+          console.log('Error saving macro goals:', error);
+        });
+    }
+
+    handleCloseMacroGoals();
+  };
+
+  const handleRemoveFood = (foodItem) => {
+    if (authUser) {
+      const email = authUser.email.replace(/\./g, '_');
+      const foodRef = ref(db, `Users/${email}/Food/${foodItem.name}`);
+      remove(foodRef)
+        .then(() => {
+          console.log('Food item removed successfully');
+          setFoodItems((prevFoodItems) =>
+            prevFoodItems.filter((item) => item.key !== foodItem.key)
+          );
+        })
+        .catch((error) => {
+          console.log('Error removing food item:', error);
+        });
+    }
+  };
+
   const handleSubmit = () => {
     if (
       !foodDetails.name ||
@@ -102,14 +174,12 @@ function UserDashboard() {
 
     if (authUser) {
       const email = authUser.email.replace(/\./g, '_');
-      const foodRef = push(ref(db, `Users/${email}/Food`));
+      const foodRef = push(ref(db, `Users/${email}/Food/${foodDetails.name}`));
       set(foodRef, {
-        [foodDetails.name]: {
-          calories: foodDetails.calories,
-          protein: foodDetails.protein,
-          carbs: foodDetails.carbs,
-          fats: foodDetails.fats
-        }
+        calories: foodDetails.calories,
+        protein: foodDetails.protein,
+        carbs: foodDetails.carbs,
+        fats: foodDetails.fats
       })
         .then(() => {
           console.log('Food details stored successfully');
@@ -118,30 +188,15 @@ function UserDashboard() {
           console.log('Error storing food details:', error);
         });
     }
-  
-    handleCloseModal();
-  };
-  
 
-  const handleRemoveFood = (name) => {
-    if (authUser) {
-      const email = authUser.email.replace(/\./g, '_');
-      const foodRef = ref(db, `Users/${email}/Food/${name}`);
-      remove(foodRef)
-        .then(() => {
-          console.log('Food item removed successfully');
-        })
-        .catch((error) => {
-          console.log('Error removing food item:', error);
-        });
-    }
+    handleCloseModal();
   };
 
   return (
     <section className="userdashboard section" id="userdashboard">
       <h2 className="userdashboard__title">User Dashboard</h2>
       <span className="userdashboard__subtitle">Welcome</span>
-  
+
       <div>
         {authUser ? (
           <>
@@ -152,12 +207,15 @@ function UserDashboard() {
             <button className="addfoodbutton" onClick={handleAddFood}>
               Add Food
             </button>
+            <button className="macrogoalsbutton" onClick={handleSetMacroGoals}>
+              Set Macro Goals
+            </button>
           </>
         ) : (
           <p>Signed Out</p>
         )}
       </div>
-  
+
       {isAddingFood && (
         <div className="modal__overlay">
           <div className="modal">
@@ -205,43 +263,87 @@ function UserDashboard() {
           </div>
         </div>
       )}
-  
-  <div>
-  <h3>Food Items</h3>
-  {foodItems.length > 0 ? (
-    <div className="table-container">
-      <table className="food-items-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Calories</th>
-            <th>Protein</th>
-            <th>Carbs</th>
-            <th>Fats</th>
-          </tr>
-        </thead>
-        <tbody>
-          {foodItems.map((foodItem) => (
-          <tr key={foodItem.key}>
-            <td>{foodItem.name || ''}</td>
-            <td>{foodItem.calories || ''}</td>
-            <td>{foodItem.protein || ''}</td>
-            <td>{foodItem.carbs || ''}</td>
-            <td>{foodItem.fats || ''}</td>
-            <td>
-            <button onClick={() => handleRemoveFood(foodItem.key)}>Remove</button>
-            </td>
-          </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  ) : (
-    <p>No food items found.</p>
-    )}
-    </div>
-  </section>
-  );  
+
+      {isSettingMacroGoals && (
+        <div className="modal__overlay">
+          <div className="modal">
+            <h3>Set Daily Macro Goals</h3>
+            {error && <p className="error-message">{error}</p>}
+            <input
+              type="number"
+              name="calories"
+              placeholder="Calories"
+              value={macroGoalDetails.calories}
+              onChange={handleMacroGoalChange}
+            />
+            <input
+              type="number"
+              name="protein"
+              placeholder="Protein"
+              value={macroGoalDetails.protein}
+              onChange={handleMacroGoalChange}
+            />
+            <input
+              type="number"
+              name="carbs"
+              placeholder="Carbs"
+              value={macroGoalDetails.carbs}
+              onChange={handleMacroGoalChange}
+            />
+            <input
+              type="number"
+              name="fats"
+              placeholder="Fats"
+              value={macroGoalDetails.fats}
+              onChange={handleMacroGoalChange}
+            />
+            <div className="modal__buttons">
+              <button onClick={handleCloseMacroGoals}>Cancel</button>
+              <button onClick={handleSaveMacroGoals}>Submit</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div>
+        <h3 className="table__title">Food Items</h3>
+        {foodItems.length > 0 ? (
+          <div className="table-container">
+            <table className="food-items-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Calories</th>
+                  <th>Protein</th>
+                  <th>Carbs</th>
+                  <th>Fats</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {foodItems.map((foodItem) => (
+                  <tr key={foodItem.key}>
+                    <td>{foodItem.name || ''}</td>
+                    <td>{foodItem.calories || ''}</td>
+                    <td>{foodItem.protein || ''}</td>
+                    <td>{foodItem.carbs || ''}</td>
+                    <td>{foodItem.fats || ''}</td>
+                    <td>
+                      <button className="removefoodbutton" onClick={() => handleRemoveFood(foodItem)}>
+                        Remove
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <p>No food items found.</p>
+        )}
+      </div>
+    </section>
+  );
 }
 
 export default UserDashboard;
