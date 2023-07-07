@@ -136,4 +136,39 @@
     background-color: rgb(90, 89, 89);
     box-shadow: inset 0 0 0 3px rgba(10, 10, 10, 0.433);
   }
+
+  .macro-goals-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  
+  .macro-goal-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 1rem;
+  }
+  
+  .macro-goal-box-title {
+    font-size: 18px;
+    color: darkgray;
+    text-align: center;
+  }
+  
+  .macro-goal-box-content {
+    margin-top: 0.5rem;
+    font-size: 24px;
+    font-weight: bold;
+    color: darkgray;
+    border: 2px solid; 
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2rem;
+    margin-left: 2rem;
+  }
   
