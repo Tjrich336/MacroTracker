@@ -4,6 +4,7 @@ import { auth } from '../../firebase';
 import { useHistory } from 'react-router-dom';
 import { getDatabase, ref, push, set, remove, onValue } from 'firebase/database';
 import './userdashboard.css';
+import DisplayGraphModal from "../Modal/DisplayGraphModal"
 
 function UserDashboard() {
   const [authUser, setAuthUser] = useState(null);
@@ -265,24 +266,101 @@ const handleSaveMacroGoals = () => {
     return Math.round((value / goal) * 100) + '%';
   };
 
+
+  /**
+   * Manage DisplayGraphModal component in Modal Folder
+   */
+  const [showGraphModal, setShowGraphModal] = useState(false);
+
+  const showModal = () => {
+    setShowGraphModal(true);
+  }
+
+  const hideModal = () => {
+    setShowGraphModal(false);
+  }
+
+    /**
+   *  Fetch total marco-nutrient from user's database 
+   *  Serializable data used for Charts
+   *  */ 
+    const [totalMarco, setTotalMarco] = useState({fat:0, protein: 0, carbs: 0})
+
+    useEffect(() => {
+      let totalFat = 0;
+      let totalProtein = 0;
+      let totalCarbs = 0;
+  
+  
+      foodItems.forEach(item => {
+        console.log(item)
+        totalFat += Number(item.fats);
+        totalProtein += Number(item.protein);
+        totalCarbs += Number(item.carbs)
+      })
+  
+      setTotalMarco({fat: totalFat, protein: totalProtein, carbs: totalCarbs})
+    }, [foodItems])
+
+
+      /**
+   *  Fetch total calories from user's database 
+   *  Serializable data used for Charts
+   *  */ 
+
+    const [totalCal, setTotalCal] = useState({calories: 0})
+
+    useEffect(() => {
+      let totalFat = 0;
+      let totalProtein = 0;
+      let totalCarbs = 0;
+  
+  
+      foodItems.forEach(item => {
+        console.log(item)
+        totalFat += Number(item.fats);
+        totalProtein += Number(item.protein);
+        totalCarbs += Number(item.carbs)
+      })
+  
+      setTotalCal({fat: totalFat, protein: totalProtein, carbs: totalCarbs})
+    }, [foodItems])
+
   return (
     <section className="userdashboard section" id="userdashboard">
       <h2 className="userdashboard__title">User Dashboard</h2>
-      <span className="userdashboard__subtitle">Welcome</span>
+      <span className="userdashboard__subtitle">
+        
+        </span>
 
       <div>
         {authUser ? (
+          
           <>
-            <p>{`Signed In as ${authUser.email}`}</p>
-            <button className="signoutbutton" onClick={userSignOut}>
-              Sign Out
-            </button>
-            <button className="addfoodbutton" onClick={handleAddFood}>
-              Add Food
-            </button>
-            <button className="macrogoalsbutton" onClick={handleSetMacroGoals}>
-              Set Macro Goals
-            </button>
+          <p className='signStatus'>{`Welcome! Signed In as ${authUser.email}`}</p>
+            <div className="button_container">
+              <button className="button_item" onClick={userSignOut}>
+                Sign Out
+              </button>
+
+              <button className="button_item" onClick={handleAddFood}>
+                Add Food
+              </button>
+
+              <button className="button_item" onClick={handleSetMacroGoals}>
+                Set Macro Goals
+              </button>
+
+              <button className="button_item" onClick={showModal}>Show Data</button> {
+                <DisplayGraphModal 
+                  show={showGraphModal} 
+                  handleClose={hideModal} 
+                  data={totalMarco}
+                  goal={macroGoalDetails}
+                  >
+                </DisplayGraphModal>
+              }
+            </div>           
           </>
         ) : (
           <p>Signed Out</p>
