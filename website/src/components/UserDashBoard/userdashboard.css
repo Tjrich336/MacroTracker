@@ -35,6 +35,11 @@
 	opacity: 90%;
 }
 
+.button_item:active {
+	animation-name: zoomOnClicked;
+	animation-duration: 1s;
+}
+
 .table__title {
 	text-align: center;
 	margin-top: 2rem;
@@ -157,4 +162,16 @@
 	align-items: center;
 	margin-right: 2rem;
 	margin-left: 2rem;
+}
+
+@keyframes zoomOnClicked {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.2);
+	}
+	100% {
+		transform: scale(1);
+	}
 }

@@ -326,20 +326,6 @@ const handleSaveMacroGoals = () => {
       setTotalCal({fat: totalFat, protein: totalProtein, carbs: totalCarbs})
     }, [foodItems])
 
-    /**
-     *  Handles update to NavBar or Header Component on User Auth or Login.
-     *  If login, updates Header to have a sign-out button. 
-     */
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-    const handleLogin = () => {
-      setIsLoggedIn(true);
-    }
-
-    const handleLogOut = () => {
-      setIsLoggedIn(false);
-    }
-
   return (
     <section className="userdashboard section" id="userdashboard">
       <h2 className="userdashboard__title">User Dashboard</h2>
@@ -349,9 +335,7 @@ const handleSaveMacroGoals = () => {
 
       <div>
         {authUser ? (
-          
           <>
-          <p className='signStatus'>{`Welcome! Signed In as ${authUser.email}`}</p>
             <div className="button_container">
 
 

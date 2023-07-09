@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./header.css";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { auth } from '../../firebase';
 
 function Header () {
@@ -33,9 +33,6 @@ function Header () {
     return () => unsubscribe();
   }, []); 
   
-
-
-
   /**
    *  async function to sign out user
    *  set isLoggedIn to false after signOut
@@ -44,6 +41,9 @@ function Header () {
     await auth.signOut();
     setIsLoggedIn(false);
   }
+
+  // Get current location path
+  const location = useLocation();
   
   return (
     <header className="header">
@@ -61,7 +61,7 @@ function Header () {
             </li>
 
             {/* Conditionally render "Log Out" or "Login" based on `isLoggedIn` state */}
-            {isLoggedIn ? (
+            {isLoggedIn && location.pathname === '/userdashboard' ? (
               <li className="nav__item" onClick={signOut}>
                 <Link to="/" className="nav__link">
                   <i className="uil uil-estate nav__icon"></i> Log Out
