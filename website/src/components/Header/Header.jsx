@@ -25,7 +25,16 @@ function Header () {
         setIsLoggedIn(false);
       }
     })
-  })
+    /**
+     * "cleanup" to prevent memory leaks.
+     * auth.onAuthStateChanged() will continue to listen and exist which is why
+     * we need to unmount it when no longer in use.
+     */
+    return () => unsubscribe();
+  }, []); 
+  
+
+
 
   /**
    *  async function to sign out user
