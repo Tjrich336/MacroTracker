@@ -514,7 +514,7 @@ const handleSaveMacroGoals = () => {
             </table>
           </div>
         ) : (
-          <p>No food items found.</p>
+          <h4 className='FoodItemStatus'>No food items found. Add a food!</h4>
         )}
       </div>
     </section>
