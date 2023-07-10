@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { getDatabase, ref, push, set, remove, onValue } from 'firebase/database';
 import './userdashboard.css';
 import DisplayGraphModal from "../Modal/DisplayGraphModal"
+import { resetFoodItems } from '../../firebase';
 
 function UserDashboard() {
   const [authUser, setAuthUser] = useState(null);
@@ -337,9 +338,7 @@ const handleSaveMacroGoals = () => {
         {authUser ? (
           <>
             <div className="button_container">
-
-
-              <button className="button_item">Reset</button>
+              <button className="button_item" onClick={() => resetFoodItems(authUser.email)}>Reset</button>
 
               <button className="button_item" onClick={handleAddFood}>
                 Add Food
