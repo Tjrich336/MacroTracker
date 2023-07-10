@@ -1,94 +1,133 @@
-.landing__content {
-    grid-template-columns: 400px repeat(2,1fr);
-    padding-top: 2rem;
-    display: flex;
-    margin-left: 2rem;
-    margin-right: 2rem;
+* {
+	box-sizing: border-box;
 }
 
-.landing__container {
-    display: contents;
+h1 {
+	font-size: 50px;
+	font-weight: bold;
+	text-align: center;
 }
 
-.landing__message {
-    font-size: medium;
-    font-weight: normal;
-    color: white;
-    width: fit-content;
-    height: fit-content;
-    padding-top: 7rem;
-    text-align: center;
+h1:hover {
+	transform: scale(1.01);
 }
 
-.landing__img {
-    background: url(../../assets/futuristicHealth.png);
-    background-position: center;
-    background-size: cover;
-    box-shadow: inset 0 0 0 9px rgba(10, 10, 10, 0.433);
-    justify-self: center;
-    width: 1000px;
-    height: 400px;
-    display: content;
+.container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around; /* evenly distributed , applying equal space around */
+	width: 100%; /* This is full width. Adjust to what you need. */
+}
+
+.container_img {
+	width: 700px; /* whatever width you want */
+	height: 600px; /* whatever height you want */
+	overflow: hidden; /* This ensures the image does not spill out of the container */
+	flex: none; /* This prevents shrinking and growing. */
+	padding-right: 100px;
+	position: relative;
+	animation: levitate 1.8s infinite;
+}
+
+@keyframes levitate {
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(20px); /* Adjust the distance and direction as desired */
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+.container_img img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	border-radius: 70%;
+}
+
+.container_img img:hover {
+	transform: scale(0.99);
+}
+
+.container_text {
+	flex: none; /* This prevents shrinking and growing. */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.landingTextBlock {
+	font-size: medium;
+	font-weight: normal;
+	color: white;
+	text-align: center;
+	width: 600px;
+	height: 300px;
 }
 
 .login-button {
-    color: white;
-    background: linear-gradient(to right, rgb(213, 83, 104),rgb(192, 52, 192));
-    font-size: medium;
-    font-weight: bolder;
-    border-radius: 0.5rem;
-    width: 150px;
-    height: 60px;
-    margin-left: 15rem;
-    margin-top: 6rem;
-    box-shadow: inset 0 0 0 6px rgba(10, 10, 10, 0.433);
+	color: white;
+	background: linear-gradient(to right, rgb(213, 83, 104), rgb(192, 52, 192));
+	font-size: medium;
+	font-weight: bolder;
+	border-radius: 0.5rem;
+	width: 150px;
+	height: 60px;
+	box-shadow: inset 0 0 0 6px rgba(10, 10, 10, 0.433);
+}
+
+.login-button:hover {
+	transform: scale(1.05);
 }
 
 /* ===================== BREAKPOINTS ===================== */
 /*   For Large Devices   */
 
 @media screen and (max-width: 992px) {
-    .landing__container {
-        grid-template-columns: 100px repeat(2, 1fr);
-        column-gap: 1.25rem;
-    }
+	.landing__container {
+		grid-template-columns: 100px repeat(2, 1fr);
+		column-gap: 1.25rem;
+	}
 
-    .landing__message {
-        max-width: initial;
-        margin-bottom: var(--mb-2-5);
-    }
+	.landing__message {
+		max-width: initial;
+		margin-bottom: var(--mb-2-5);
+	}
 
-    .landing__img {
-        width: 250px;
-        height: 250px;
-        box-shadow: inset 0 0 0 8px rgb(255 255 255 / 30%);
-    }
-  }
-  
-  /*   For Medium Devices   */
-  @media screen and (max-width: 768px) {
-    .landing__container {
-        grid-template-columns: 0.5fr 3fr;
-        padding-top: 3.5rem;
-    }
+	.landing__img {
+		width: 250px;
+		height: 250px;
+		box-shadow: inset 0 0 0 8px rgb(255 255 255 / 30%);
+	}
+}
 
-    .landing__img {
-        order: initial;
-        justify-self: initial;
-    }
+/*   For Medium Devices   */
+@media screen and (max-width: 768px) {
+	.landing__container {
+		grid-template-columns: 0.5fr 3fr;
+		padding-top: 3.5rem;
+	}
 
-    .landing__img {
-        box-shadow: inset 0 0 0 6px rgb(255 255 255 / 30%);
-        width: 200px;
-        height: 200px;
-    }
-  }
-  
-  /*   For Small Devices   */
-  @media screen and (max-width: 350px) {
-    .landing__img {
-        width: 180px;
-        height: 180px;
-    }
-  }
+	.landing__img {
+		order: initial;
+		justify-self: initial;
+	}
 
+	.landing__img {
+		box-shadow: inset 0 0 0 6px rgb(255 255 255 / 30%);
+		width: 200px;
+		height: 200px;
+	}
+}
+
+/*   For Small Devices   */
+@media screen and (max-width: 350px) {
+	.landing__img {
+		width: 180px;
+		height: 180px;
+	}
+}
