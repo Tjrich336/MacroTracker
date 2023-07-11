@@ -7,14 +7,14 @@ body {
 	overflow: hidden;
 }
 
-h1 {
+.landingTitle {
 	font-size: 50px;
 	font-weight: bold;
 	text-align: center;
 	position: relative;
 }
 
-h1::after {
+.landingTitle::after {
 	content: "Discover a healthier you!";
 	position: absolute;
 	top: 0;
@@ -39,7 +39,7 @@ h1::after {
 	}
 }
 
-h1:hover {
+.landingTitle:hover {
 	transform: scale(1.01);
 }
 
