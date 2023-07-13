@@ -8,6 +8,7 @@ import HealthFacts from './components/HealthFacts/HealthFacts';
 import Login from './components/Login/Login';
 import Signup from './components/Login/Signup';
 import UserDashBoard from './components/UserDashBoard/UserDashBoard';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/userdashboard" component={UserDashBoard} />
         </Switch>
       </main>
+      <Footer />
     </Router>
   );
 }
