@@ -265,28 +265,26 @@ const handleSaveMacroGoals = () => {
     return Math.round((value / goal) * 100) + '%';
   };
 
+  const calculateTotal = (category) => {
+    let total = 0;
+    foodItems.forEach((foodItem) => {
+      total += parseInt(foodItem[category]) || 0;
+    });
+    return total;
+  };
+
   return (
     <section className="userdashboard section" id="userdashboard">
       <h2 className="userdashboard__title">User Dashboard</h2>
       <span className="userdashboard__subtitle">Welcome</span>
 
-      <div>
-        {authUser ? (
-          <>
-            <p>{`Signed In as ${authUser.email}`}</p>
-            <button className="signoutbutton" onClick={userSignOut}>
-              Sign Out
-            </button>
+      <div className="button__container">
             <button className="addfoodbutton" onClick={handleAddFood}>
               Add Food
             </button>
             <button className="macrogoalsbutton" onClick={handleSetMacroGoals}>
               Set Macro Goals
             </button>
-          </>
-        ) : (
-          <p>Signed Out</p>
-        )}
       </div>
 
       {isAddingFood && (
@@ -436,10 +434,30 @@ const handleSaveMacroGoals = () => {
                   </tr>
                 ))}
               </tbody>
+              <tr>
+                  <th>Totals:</th>
+                  <th>{calculateTotal('calories')}</th>
+                  <th>{calculateTotal('protein')}</th>
+                  <th>{calculateTotal('carbs')}</th>
+                  <th>{calculateTotal('fats')}</th>
+                  <th></th>
+                </tr>
             </table>
           </div>
         ) : (
           <p>No food items found.</p>
+        )}
+      </div>
+      <div>
+        {authUser ? (
+          <>
+            <p className="signedInAs">{`Signed In as ${authUser.email}`}</p>
+            <button className="signoutbutton" onClick={userSignOut}>
+              Sign Out
+            </button>
+          </>
+        ) : (
+          <p>Signed Out</p>
         )}
       </div>
     </section>
