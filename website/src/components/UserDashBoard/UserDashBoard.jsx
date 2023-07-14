@@ -274,14 +274,6 @@ function UserDashboard() {
 		return total;
 	};
 
-	const calculateTotal = (category) => {
-		let total = 0;
-		foodItems.forEach((foodItem) => {
-			total += parseInt(foodItem[category]) || 0;
-		});
-		return total;
-	};
-
 	/**
 	 * Manage DisplayGraphModal component in Modal Folder
 	 */
