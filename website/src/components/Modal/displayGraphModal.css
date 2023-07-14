@@ -1,0 +1,47 @@
+.modal_overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal {
+	background-color: white;
+	padding: 2rem;
+	border-radius: 0.5rem;
+	/* Flexbox styles for centering */
+	display: flex;
+	flex-direction: column; /* Makes the content stack vertically */
+	align-items: center; /* Centers the content horizontally */
+	justify-content: center; /* Centers the content vertically */
+}
+
+.modal h3 {
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 1rem;
+	color: rgb(90, 89, 89);
+}
+
+.closeButton {
+	padding: 0.5rem 1rem;
+	margin-left: 0.5rem;
+	border-radius: 0.25rem;
+	color: white;
+	background-color: rgb(90, 89, 89);
+	border: none;
+	cursor: pointer;
+}
+
+.modal .pie-chart {
+	/* PieChart styles when inside the modal */
+}
+
+.modal .simple-bar-chart {
+	/* SimpleBarChart styles when inside the modal */
+}

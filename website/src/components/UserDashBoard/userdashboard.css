@@ -1,185 +1,188 @@
 .userdashboard__title {
-    font-size: 50px;
-    font-weight: bold;
-    color: darkgray;
-    text-align: center;
-    margin-top: 5rem;
-  }
-  
-  .userdashboard__subtitle {
-    font-size: 15px;
-    color: darkgray;
-    text-align: center;
-    display: block;
-  }
-  
-  .signedInAs {
-    margin-top: 2rem;
-    margin-left: 2rem;
-  }
-  .signoutbutton {
-    margin-left: 2rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
-    border-radius: 0.25rem;
-    color: white;
-    background-color: rgb(90, 89, 89);
-    box-shadow: inset 0 0 0 3px rgba(10, 10, 10, 0.433);
-  }
+	font-size: 50px;
+	font-weight: bold;
+	color: darkgray;
+	text-align: center;
+	margin-top: 5rem;
+}
 
-  .button__container {
-    margin-top: 3rem;
-    display: flex;
-    justify-content: center;
-  }
+.userdashboard__subtitle {
+	font-size: 15px;
+	color: darkgray;
+	text-align: center;
+	display: block;
+}
 
-  .addfoodbutton {
-    margin-left: 2rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
-    border-radius: 0.25rem;
-    color: white;
-    background-color: rgb(90, 89, 89);
-    box-shadow: inset 0 0 0 3px rgba(10, 10, 10, 0.433);
-  }
-  
-  .removefoodbutton {
-    margin-left: 2rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
-    border-radius: 0.25rem;
-    color: white;
-    background-color: rgb(90, 89, 89);
-    box-shadow: inset 0 0 0 3px rgba(10, 10, 10, 0.433);
-  }
-  
-  .table__title {
-    text-align: center;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    font-size:x-large;
-  }
-  .modal__overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .modal {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 0.5rem;
-  }
-  
-  .modal h3 {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    color: rgb(90, 89, 89);
-  }
-  
-  .modal input {
-    margin-bottom: 1rem;
-    padding: 0.5rem;
-    border-radius: 0.25rem;
-    border: 1px solid gray;
-    width: 100%;
-  }
-  
-  .modal__buttons {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 1rem;
-  }
-  
-  .modal__buttons button {
-    padding: 0.5rem 1rem;
-    margin-left: 0.5rem;
-    border-radius: 0.25rem;
-    color: white;
-    background-color: rgb(90, 89, 89);
-    border: none;
-    cursor: pointer;
-  }
+.button_container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+.button_item {
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-top: 0.25rem;
+	padding-bottom: 0.25rem;
+	border-radius: 0.25rem;
+	color: white;
+	background-color: rgb(90, 89, 89);
+	box-shadow: inset 0 0 0 3px rgba(10, 10, 10, 0.433);
+}
 
-  .table-container {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .food-items-table {
-    margin-top: 1rem;
-    border-collapse: collapse;
-    text-align: center;
-  }
-  
-  .food-items-table th,
-  .food-items-table td {
-    padding: 0.5rem 1rem;
-    color: white;
-  }
-  
-  .food-items-table th {
-    background-color: rgb(90, 89, 89);
-    color: white;
-  }
+.button_item:hover {
+	transform: scale(1.1);
+	opacity: 90%;
+}
 
-  .macrogoalsbutton {
-    margin-left: 2rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
-    border-radius: 0.25rem;
-    color: white;
-    background-color: rgb(90, 89, 89);
-    box-shadow: inset 0 0 0 3px rgba(10, 10, 10, 0.433);
-  }
+.button_item:active {
+	animation-name: zoomOnClicked;
+	animation-duration: 1s;
+}
 
-  .macro-goals-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-  }
-  
-  .macro-goal-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 1rem;
-  }
-  
-  .macro-goal-box-title {
-    font-size: 18px;
-    color: darkgray;
-    text-align: center;
-  }
-  
-  .macro-goal-box-content {
-    margin-top: 0.5rem;
-    font-size: 24px;
-    font-weight: bold;
-    color: darkgray;
-    border: 2px solid; 
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 2rem;
-    margin-left: 2rem;
-  }
-  
+.table__title {
+	text-align: center;
+	margin-top: 2rem;
+	margin-bottom: 1rem;
+	font-size: x-large;
+}
+.modal__overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal {
+	background-color: white;
+	padding: 2rem;
+	border-radius: 0.5rem;
+}
+
+.modal h3 {
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 1rem;
+	color: rgb(90, 89, 89);
+}
+
+.modal input {
+	margin-bottom: 1rem;
+	padding: 0.5rem;
+	border-radius: 0.25rem;
+	border: 1px solid gray;
+	width: 100%;
+}
+
+.modal__buttons {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 1rem;
+}
+
+.modal__buttons button {
+	padding: 0.5rem 1rem;
+	margin-left: 0.5rem;
+	border-radius: 0.25rem;
+	color: white;
+	background-color: rgb(90, 89, 89);
+	border: none;
+	cursor: pointer;
+}
+
+.table-container {
+	display: flex;
+	justify-content: center;
+}
+
+.food-items-table {
+	margin-top: 1rem;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+.food-items-table th,
+.food-items-table td {
+	padding: 0.5rem 1rem;
+	color: white;
+}
+
+.food-items-table th {
+	background-color: rgb(90, 89, 89);
+	color: white;
+}
+
+.FoodItemStatus {
+	display: flex;
+	justify-content: center;
+}
+
+.macrogoalsbutton {
+	margin-left: 2rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-top: 0.25rem;
+	padding-bottom: 0.25rem;
+	border-radius: 0.25rem;
+	color: white;
+	background-color: rgb(90, 89, 89);
+	box-shadow: inset 0 0 0 3px rgba(10, 10, 10, 0.433);
+}
+
+.macro-goals-container {
+	display: flex;
+	justify-content: center;
+	margin-top: 2rem;
+}
+
+.macro-goal-box {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 0 1rem;
+}
+
+.macro-goal-box-title {
+	font-size: 18px;
+	color: darkgray;
+	text-align: center;
+}
+
+.macro-goal-box-content {
+	margin-top: 0.5rem;
+	font-size: 24px;
+	font-weight: bold;
+	color: darkgray;
+	border: 2px solid;
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 2rem;
+	margin-left: 2rem;
+}
+
+.logContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@keyframes zoomOnClicked {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.2);
+	}
+	100% {
+		transform: scale(1);
+	}
+}

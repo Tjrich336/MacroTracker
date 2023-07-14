@@ -1,8 +1,50 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./header.css";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { auth } from '../../firebase';
 
 function Header () {
+  /**
+   *  State variable to keep track of user's auth status.
+   */
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  /**
+   *  useEffect executes "side effects" from function components.
+   *  auth.onAuthStateChanged is an event listener from firebase that checks
+   *  user auth state changes.
+   *  
+   */
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(user => {
+      //if user obj is present, user is logged in
+      if (user) {
+        setIsLoggedIn(true);  
+      } else {
+        //if user obj is null, user is logged out
+        setIsLoggedIn(false);
+      }
+    })
+    /**
+     * "cleanup" to prevent memory leaks.
+     * auth.onAuthStateChanged() will continue to listen and exist which is why
+     * we need to unmount it when no longer in use.
+     */
+    return () => unsubscribe();
+  }, []); 
+  
+  /**
+   *  async function to sign out user
+   *  set isLoggedIn to false after signOut
+   */
+  const signOut = async () => {
+    await auth.signOut();
+    setIsLoggedIn(false);
+  }
+
+  // Get current location path
+  const location = useLocation();
+  
   return (
     <header className="header">
       <nav className="nav container">
@@ -18,11 +60,20 @@ function Header () {
               </Link>
             </li>
 
-            <li className="nav__item">
-              <Link to="/login" className="nav__link">
-                <i className="uil uil-estate nav__icon"></i> Login
-              </Link>
-            </li>
+            {/* Conditionally render "Log Out" or "Login" based on `isLoggedIn` state */}
+            {isLoggedIn && location.pathname === '/userdashboard' ? (
+              <li className="nav__item" onClick={signOut}>
+                <Link to="/" className="nav__link">
+                  <i className="uil uil-estate nav__icon"></i> Log Out
+                </Link>
+              </li>
+            ) : (
+              <li className="nav__item">
+                <Link to="/login" className="nav__link">
+                  <i className="uil uil-estate nav__icon"></i> Login
+                </Link>
+              </li>
+            )}
 
             <li className="nav__item">
               <Link to="/healthfacts" className="nav__link">
