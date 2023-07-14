@@ -17,7 +17,7 @@ const Landing = () => {
           <div className="container_text">
             <h1 className='landingTitle '>Discover a healthier you!</h1>
             <LandingTextBlock className="landingTextBlock"></LandingTextBlock>
-            <button className="login-button" onClick={handleButtonClick}> Start for free! </button>
+            <button className="login-button" onClick={handleButtonClick}> Get Started Today! </button>
           </div>
         </div>
       </section>

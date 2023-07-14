@@ -3,12 +3,12 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: auto;
+    z-index: 999;
     background-color: black;
 }
 
 .nav {
-    height: 5rem;
+    height: 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -20,11 +20,13 @@
     color: darkgray;
     font-weight: bold;
     font-size: large;
+    margin-right: auto;
 }
 
 .nav__list {
     display: flex;
     column-gap: 2rem;
+    margin-left: auto;
 }
 
 .nav__link {

@@ -334,8 +334,6 @@ function UserDashboard() {
 	return (
 		<section className="userdashboard section" id="userdashboard">
 			<h2 className="userdashboard__title">User Dashboard</h2>
-			<span className="userdashboard__subtitle"></span>
-
 			<div>
 				{authUser ? (
 					<>
@@ -356,7 +354,7 @@ function UserDashboard() {
 								Set Macro Goals
 							</button>
 							<button className="button_item" onClick={showModal}>
-								Show Marco Data
+								Display Macro Data
 							</button>{" "}
 							{
 								<DisplayGraphModal

@@ -33,6 +33,8 @@ const Home = () => {
 	return (
 		<>
 			<Landing />
+			<HealthFacts />
+			<About />
 		</>
 	);
 };

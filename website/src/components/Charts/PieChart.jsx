@@ -7,7 +7,7 @@ const Charts = ({data}) => {
       { name: 'Protein', value: data.protein },
       { name: 'Carbs', value: data.carbs },
     ];
-    const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+    const COLORS = ['rgb(213, 83, 104)', 'rgb(192, 52, 192)', 'rgb(209, 113, 147)'];
 
 return (
         <PieChart width={400} height={200} className='pie-chart'>
@@ -17,7 +17,7 @@ return (
             cy="50%"
             labelLine={false}
             label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
-            outerRadius={80}
+            outerRadius={70}
             fill="#8884d8"
             dataKey="value"
           >
@@ -29,4 +29,4 @@ return (
     );
 }
 
-export default Charts
+export default Charts;

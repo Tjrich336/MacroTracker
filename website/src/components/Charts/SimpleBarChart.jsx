@@ -1,5 +1,5 @@
 import React from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 const SimpleBarChart = ({ data, goal }) => {
   const chartData = [
@@ -20,8 +20,8 @@ const SimpleBarChart = ({ data, goal }) => {
         <YAxis />
         <Tooltip />
         <Legend />
-        <Bar dataKey="value" fill="#8884d8" isAnimationActive={true} animationDuration={1000} />
-        <Bar dataKey="goal" fill="#82ca9d" isAnimationActive={true} animationDuration={1750}/>
+        <Bar dataKey="value" fill="rgb(11, 103, 504)" isAnimationActive={true} animationDuration={1000} />
+        <Bar dataKey="goal" fill="rgb(192, 52, 592)" isAnimationActive={true} animationDuration={1750}/>
       </BarChart>
     
   );
