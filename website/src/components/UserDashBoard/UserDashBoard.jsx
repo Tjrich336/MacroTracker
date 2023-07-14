@@ -6,6 +6,7 @@ import { getDatabase, ref, push, set, remove, onValue } from "firebase/database"
 import "./userdashboard.css";
 import DisplayGraphModal from "../Modal/DisplayGraphModal";
 import { resetFoodItems } from "../../firebase";
+import Footer from "../Footer/Footer";
 
 function UserDashboard() {
 	const [authUser, setAuthUser] = useState(null);
@@ -338,6 +339,10 @@ function UserDashboard() {
 			<div>
 				{authUser ? (
 					<>
+						<div className="logContainer">
+							<p className="signedInAs">{`Signed In as ${authUser.email}`}</p>
+						</div>
+
 						<div className="button_container">
 							<button
 								className="button_item"
@@ -536,18 +541,6 @@ function UserDashboard() {
 					</div>
 				) : (
 					<h4 className="FoodItemStatus">No food items found. Add a food!</h4>
-				)}
-			</div>
-			<div>
-				{authUser ? (
-					<>
-						<p className="signedInAs">{`Signed In as ${authUser.email}`}</p>
-						<button className="signoutbutton" onClick={userSignOut}>
-							Sign Out
-						</button>
-					</>
-				) : (
-					<p>Signed Out</p>
 				)}
 			</div>
 		</section>

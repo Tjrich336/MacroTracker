@@ -169,6 +169,12 @@
 	margin-left: 2rem;
 }
 
+.logContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 @keyframes zoomOnClicked {
 	0% {
 		transform: scale(1);
