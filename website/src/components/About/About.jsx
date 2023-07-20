@@ -1,4 +1,4 @@
-import {React, useRef} from 'react';
+import React, { useRef, useEffect } from 'react'; 
 import emailjs from "@emailjs/browser";
 import './about.css';
 
@@ -16,6 +16,10 @@ function About() {
       });
       e.target.reset()
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <section className="about section" id="about">

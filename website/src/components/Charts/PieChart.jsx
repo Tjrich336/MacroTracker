@@ -3,11 +3,11 @@ import { PieChart, Pie, Cell} from 'recharts';
 
 const Charts = ({data}) => {
     const chartData = [
-      { name: 'Fat', value: data.fat },
+      { name: 'Fats', value: data.fat },
       { name: 'Protein', value: data.protein },
       { name: 'Carbs', value: data.carbs },
     ];
-    const COLORS = ['rgb(213, 83, 104)', 'rgb(192, 52, 192)', 'rgb(209, 113, 147)'];
+    const COLORS = ['#FF6B45', '#6050DC', '#FF2E7E'];
 
 return (
         <PieChart width={400} height={200} className='pie-chart'>

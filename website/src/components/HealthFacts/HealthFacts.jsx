@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./healthfacts.css";
 
 const facts = [
@@ -90,6 +90,10 @@ function HealthFacts() {
       prevSlide === Math.ceil(facts.length / 3) - 1 ? 0 : prevSlide + 1
     );
   };  
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <section className="healthfacts section" id="healthfacts">
