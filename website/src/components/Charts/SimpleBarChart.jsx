@@ -20,8 +20,8 @@ const SimpleBarChart = ({ data, goal }) => {
         <YAxis />
         <Tooltip />
         <Legend />
-        <Bar dataKey="Value" fill="#fa553d" isAnimationActive={true} animationDuration={1000} />
-        <Bar dataKey="Goal" fill="#07aee8" isAnimationActive={true} animationDuration={1750}/>
+        <Bar dataKey="Value" fill="#fd0230" isAnimationActive={true} animationDuration={1000} />
+        <Bar dataKey="Goal" fill="#49a9fc" isAnimationActive={true} animationDuration={1750}/>
       </BarChart>
     
   );

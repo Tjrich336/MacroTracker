@@ -7,7 +7,7 @@ const Charts = ({data}) => {
       { name: 'Protein', value: data.protein },
       { name: 'Carbs', value: data.carbs },
     ];
-    const COLORS = ['#FF6B45', '#6050DC', '#FF2E7E'];
+    const COLORS = [ '#FF6B45', '#6050DC', '#FF2E7E'];
 
 return (
         <PieChart width={400} height={200} className='pie-chart'>
