@@ -36,7 +36,8 @@
     font-size: small;
     color: darkgray;
     font-weight: bolder;
-    transition: 0.3s;
+    cursor: pointer;
+    position: relative; 
 }
 
 .nav__icon,
@@ -45,10 +46,37 @@
     display: none;
 }
 
+.nav__item {
+    position: relative;
+}
+
 /* Active Link */
 .active-link,
 .nav__link:hover {
     color: white;
+}
+
+/* Slide Down Animation */
+.dropdown {
+  max-height: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 100%; 
+  left: 50%;
+  transform: translateX(-50%); 
+  width: 240px; 
+  background-color: black;
+  padding: 0.2rem 1rem; 
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.show-dropdown {
+    max-height: 10000px;
+    transition: max-height 2s ease-in-out;
 }
 
 /* ===================== BREAKPOINTS ===================== */

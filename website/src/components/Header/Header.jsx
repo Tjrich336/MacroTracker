@@ -3,48 +3,42 @@ import "./header.css";
 import { Link, useLocation } from 'react-router-dom';
 import { auth } from '../../firebase';
 
-function Header () {
-  /**
-   *  State variable to keep track of user's auth status.
-   */
+function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const location = useLocation();
+  const [activeTab, setActiveTab] = useState('/');
 
-  /**
-   *  useEffect executes "side effects" from function components.
-   *  auth.onAuthStateChanged is an event listener from firebase that checks
-   *  user auth state changes.
-   *  
-   */
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
-      //if user obj is present, user is logged in
       if (user) {
-        setIsLoggedIn(true);  
+        setIsLoggedIn(true);
       } else {
-        //if user obj is null, user is logged out
         setIsLoggedIn(false);
       }
-    })
-    /**
-     * "cleanup" to prevent memory leaks.
-     * auth.onAuthStateChanged() will continue to listen and exist which is why
-     * we need to unmount it when no longer in use.
-     */
+    });
     return () => unsubscribe();
-  }, []); 
-  
-  /**
-   *  async function to sign out user
-   *  set isLoggedIn to false after signOut
-   */
+  }, []);
+
   const signOut = async () => {
     await auth.signOut();
     setIsLoggedIn(false);
-  }
+    window.location.href = "/";
+  };
 
-  // Get current location path
-  const location = useLocation();
-  
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
+
+  const closeDropdown = () => {
+    setShowDropdown(false);
+  };
+
+  useEffect(() => {
+    setShowDropdown(false);
+    setActiveTab(location.pathname);
+  }, [location.pathname]);
+
   return (
     <header className="header">
       <nav className="nav container">
@@ -52,36 +46,67 @@ function Header () {
           MacroTracker
         </ul>
 
-        <div className="nav__menu">
+        <div className={`nav__menu ${showDropdown ? 'show-menu' : ''}`}>
           <ul className="nav__list grid">
-            <li className="nav__item">
+            <li className={`nav__item ${activeTab === '/' ? 'active-link' : ''}`} onClick={() => setActiveTab('/')}>
               <Link to="/" className="nav__link">
                 <i className="uil uil-estate nav__icon"></i> Home
               </Link>
             </li>
 
-            {/* Conditionally render "Log Out" or "Login" based on `isLoggedIn` state */}
-            {isLoggedIn && location.pathname === '/userdashboard' ? (
-              <li className="nav__item" onClick={signOut}>
-                <Link to="/" className="nav__link">
-                  <i className="uil uil-estate nav__icon"></i> Log Out
-                </Link>
-              </li>
-            ) : (
-              <li className="nav__item">
-                <Link to="/login" className="nav__link">
-                  <i className="uil uil-estate nav__icon"></i> Login
-                </Link>
-              </li>
-            )}
+            {/* Conditionally render "Profile" dropdown */}
+            <li
+              className={`nav__item ${showDropdown ? 'active-link' : ''} ${activeTab === '/profile' ? 'active-link' : ''}`}
+              onClick={() => {
+                toggleDropdown();
+                setActiveTab('/profile');
+              }}
+            >
+              <span className={`nav__link ${activeTab === '/profile' ? 'active-link' : ''}`}>
+                <i className="uil uil-user nav__icon"></i> Profile
+                <i className={`uil ${showDropdown ? 'uil-angle-up' : 'uil-angle-down'} nav__icon dropdown-icon`}></i>
+              </span>
+              <ul className={`dropdown ${showDropdown ? 'show-dropdown' : ''}`}>
+                {isLoggedIn ? (
+                  <>
+                    <li
+                      className={`nav__item ${activeTab === '/userdashboard' ? 'active-link' : ''}`}
+                      onClick={() => setActiveTab('/userdashboard')}
+                    >
+                      <Link to="/userdashboard" className="nav__link">
+                        <i className="uil uil-estate nav__icon"></i> User Dashboard
+                      </Link>
+                    </li>
+                    <li className={`nav__item ${activeTab === '/logout' ? 'active-link' : ''}`} onClick={signOut}>
+                      <span className="nav__link">
+                        <i className="uil uil-estate nav__icon"></i> Log Out
+                      </span>
+                    </li>
+                  </>
+                ) : (
+                  <>
+                    <li className={`nav__item ${activeTab === '/login' ? 'active-link' : ''}`} onClick={() => setActiveTab('/login')}>
+                      <Link to="/login" className="nav__link">
+                        <i className="uil uil-estate nav__icon"></i> Login
+                      </Link>
+                    </li>
+                    <li className={`nav__item ${activeTab === '/signup' ? 'active-link' : ''}`} onClick={() => setActiveTab('/signup')}>
+                      <Link to="/signup" className="nav__link">
+                        <i className="uil uil-estate nav__icon"></i> Signup
+                      </Link>
+                    </li>
+                  </>
+                )}
+              </ul>
+            </li>
 
-            <li className="nav__item">
+            <li className={`nav__item ${activeTab === '/healthfacts' ? 'active-link' : ''}`} onClick={() => setActiveTab('/healthfacts')}>
               <Link to="/healthfacts" className="nav__link">
                 <i className="uil uil-user nav__icon"></i> Health Facts
               </Link>
             </li>
 
-            <li className="nav__item">
+            <li className={`nav__item ${activeTab === '/about' ? 'active-link' : ''}`} onClick={() => setActiveTab('/about')}>
               <Link to="/about" className="nav__link">
                 <i className="uil uil-file-alt nav__icon"></i> About
               </Link>
