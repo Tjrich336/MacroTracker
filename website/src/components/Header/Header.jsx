@@ -6,6 +6,7 @@ import { auth } from '../../firebase';
 function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
+  const [showLogoutPrompt, setShowLogoutPrompt] = useState(false);
   const location = useLocation();
   const [activeTab, setActiveTab] = useState('/');
 
@@ -30,14 +31,27 @@ function Header() {
     setShowDropdown(!showDropdown);
   };
 
-  const closeDropdown = () => {
-    setShowDropdown(false);
-  };
-
   useEffect(() => {
     setShowDropdown(false);
     setActiveTab(location.pathname);
   }, [location.pathname]);
+
+  const handleLogoutClick = () => {
+    setShowLogoutPrompt(true);
+  };
+
+  const handleLogoutConfirm = () => {
+    signOut();
+    setShowLogoutPrompt(false);
+  };
+
+  const handleLogoutCancel = () => {
+    setShowLogoutPrompt(false);
+  };
+
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+  }
 
   return (
     <header className="header">
@@ -77,7 +91,7 @@ function Header() {
                         <i className="uil uil-estate nav__icon"></i> User Dashboard
                       </Link>
                     </li>
-                    <li className={`nav__item ${activeTab === '/logout' ? 'active-link' : ''}`} onClick={signOut}>
+                    <li className={`nav__item ${activeTab === '/logout' ? 'active-link' : ''}`} onClick={handleLogoutClick}>
                       <span className="nav__link">
                         <i className="uil uil-estate nav__icon"></i> Log Out
                       </span>
@@ -118,6 +132,19 @@ function Header() {
           <i className="uil uil-apps"></i>
         </div>
       </nav>
+
+      {/* Prompt for logging out */}
+      {showLogoutPrompt && (
+        <div className="logout-prompt-container">
+          <div className="logout-prompt">
+            <p>Are you sure you want to log out?</p>
+              <div className="logout__buttons">
+                <button onClick={handleLogoutCancel}>No</button>
+                <button onClick={handleLogoutConfirm}>Yes</button>
+              </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 };
