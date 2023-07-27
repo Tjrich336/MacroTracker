@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import "./header.css";
 import { Link, useLocation } from 'react-router-dom';
 import { auth } from '../../firebase';
-
 function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [showLogoutPrompt, setShowLogoutPrompt] = useState(false);
   const location = useLocation();
   const [activeTab, setActiveTab] = useState('/');
+  const [isOpened, setIsOpened] = useState(false);
+  const toggleMenu = () => {setIsOpened((open) => !open);};
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
@@ -55,12 +56,14 @@ function Header() {
 
   return (
     <header className="header">
-      <nav className="nav container">
+      <nav className="nav">
         <ul className="nav__logo">
           MacroTracker
         </ul>
-
-        <div className={`nav__menu ${showDropdown ? 'show-menu' : ''}`}>
+        <li className="nav__trigger" onClick={toggleMenu}>
+          trigger
+        </li>
+        <div className={`nav__menu ${isOpened ? "is-opened" : ""}`}>
           <ul className="nav__list grid">
             <li className={`nav__item ${activeTab === '/' ? 'active-link' : ''}`} onClick={() => setActiveTab('/')}>
               <Link to="/" className="nav__link">
@@ -126,6 +129,9 @@ function Header() {
               </Link>
             </li>
           </ul>
+
+
+
         </div>
 
         <div className="nav__toggle">
