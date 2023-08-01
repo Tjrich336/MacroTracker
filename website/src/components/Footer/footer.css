@@ -1,18 +1,21 @@
 .footer {
-    margin-top: 3rem;
-    background-color: rgb(36, 36, 36);
-    padding: 0.25rem;
-    text-align: center;
-  }
-  
-  .footer__content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .footer__content p {
-    margin: 0.25rem 0;
-    color: #888888;
-    font-size: 14px;
-  }  
+	margin-top: 3rem;
+	background-color: rgb(36, 36, 36);
+	padding: 0.25rem;
+	text-align: center;
+	bottom: 0;
+	position: absolute;
+	width: 100%;
+}
+
+.footer__content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.footer__content p {
+	margin: 0.25rem 0;
+	color: #888888;
+	font-size: 14px;
+}
