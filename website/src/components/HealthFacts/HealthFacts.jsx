@@ -101,7 +101,7 @@ function HealthFacts() {
       <span className="healthfacts__subtitle">Tips & Tricks</span>
 
       <h3 className="content__title">Why Should You Track Your Health?</h3>
-
+      
       <div className="healthfacts__content">
         <ul>
           <li>
@@ -117,14 +117,18 @@ function HealthFacts() {
             Overconsumption of food can have detrimental effects on our health. When we consume more calories than our body needs, it can lead to weight gain and increase the risk of developing chronic diseases such as obesity, diabetes, and heart disease. Excessive intake of unhealthy fats, sugars, and processed foods can also contribute to poor nutrition and nutrient deficiencies.
             Maintaining a healthy balance of macronutrients is crucial for optimal health. The recommended macronutrient distribution varies depending on individual factors such as age, sex, activity level, and overall health goals. In general, a healthy range for macronutrients includes:
             <li className="para__facts">
-              <span className="category">Carbohydrates</span>
-              <span className="cat__content">Carbohydrates should make up around 45-65% of your daily caloric intake. Choose complex carbohydrates such as whole grains, fruits, and vegetables, which provide fiber, vitamins, and minerals, while limiting refined sugars and processed foods.</span>
-              <br/><br/>
-              <span className="category">Proteins</span>
-              <span className="cat__content">Proteins should constitute around 10-35% of your daily caloric intake. Opt for lean protein sources such as poultry, fish, legumes, and tofu. Proteins are essential for muscle repair, hormone production, and immune function.</span>
-              <br/><br/>
-              <span className="category">Fats</span>
-              <span className="cat__content">Fats should account for about 20-35% of your daily caloric intake. Focus on consuming healthy fats from sources like nuts, seeds, avocados, and olive oil. These provide essential fatty acids and support various bodily functions.</span>
+              <div className="macro-box">
+                <span className="category">Carbohydrates</span>
+                <span className="cat__content">Carbohydrates should make up around 45-65% of your daily caloric intake. Choose complex carbohydrates such as whole grains, fruits, and vegetables, which provide fiber, vitamins, and minerals, while limiting refined sugars and processed foods.</span>
+              </div>
+              <div className="macro-box">
+                <span className="category">Proteins</span>
+                <span className="cat__content">Proteins should constitute around 10-35% of your daily caloric intake. Opt for lean protein sources such as poultry, fish, legumes, and tofu. Proteins are essential for muscle repair, hormone production, and immune function.</span>
+              </div>
+              <div className="macro-box">
+                <span className="category">Fats</span>
+                <span className="cat__content">Fats should account for about 20-35% of your daily caloric intake. Focus on consuming healthy fats from sources like nuts, seeds, avocados, and olive oil. These provide essential fatty acids and support various bodily functions.</span>
+              </div>
             </li>
             By maintaining a balanced diet within these recommended ranges, you can support your overall health and well-being while minimizing the risk of nutrient imbalances and chronic diseases associated with overconsumption and poor nutrition. It is important to consult with a healthcare professional or registered dietitian for personalized guidance based on your specific needs and health goals.
           </li>

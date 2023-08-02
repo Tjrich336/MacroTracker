@@ -42,7 +42,7 @@ function About() {
             By using this website, you acknowledge and accept this disclaimer. If you do not agree, please refrain from using our website.
           </p>
 
-          <h5 className="team">Meet The Team</h5>
+          <h5 className="team">Development Team</h5>
             <p className="team__content">Trevor Richardson</p>
             <p className="team__content">Orin Sparks</p>
             <p className="team__content">Brandon Hach</p>

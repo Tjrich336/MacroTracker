@@ -1,17 +1,24 @@
 .userdashboard__title {
 	font-size: 50px;
 	font-weight: bold;
-	color: darkgray;
 	text-align: center;
 	margin-top: 5rem;
+	background-image: linear-gradient(to right, rgb(213, 83, 104), rgb(192, 52, 192));
+  	-webkit-background-clip: text; 
+  	background-clip: text; 
+  	color: transparent; 
 }
 
 .signedInAs {
 	font-size: 15px;
-	color: darkgray;
+	font-weight: bold;
 	text-align: center;
 	display: block;
 	margin-bottom: 3rem;
+	background-image: linear-gradient(to right, rgb(213, 83, 104), rgb(192, 52, 192));
+  	-webkit-background-clip: text; 
+  	background-clip: text; 
+  	color: transparent; 
 }
 
 .button_container {

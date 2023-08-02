@@ -1,16 +1,24 @@
 .healthfacts__title {
   font-size: 50px;
   font-weight: bold;
-  color: darkgray;
   text-align: center;
   margin-top: 2rem;
+  background-image: linear-gradient(to right, rgb(213, 83, 104), rgb(192, 52, 192));
+  -webkit-background-clip: text; 
+  background-clip: text;
+  color: transparent; 
 }
+
 
 .healthfacts__subtitle {
   font-size: 15px;
-  color: darkgray;
+  font-weight: bold;
   text-align: center;
   display: block;
+  background-image: linear-gradient(to right, rgb(213, 83, 104), rgb(192, 52, 192));
+  -webkit-background-clip: text; 
+  background-clip: text; 
+  color: transparent; 
 }
 
 .content__title {
@@ -19,6 +27,10 @@
   text-align: center;
   font-size: large;
   font-weight: bolder;
+  background-image: linear-gradient(to right, rgb(213, 83, 104), rgb(192, 52, 192));
+  -webkit-background-clip: text; 
+  background-clip: text; 
+  color: transparent;
 }
 
 .healthfacts__content {
@@ -34,25 +46,42 @@
 }
 
 .para__facts {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.macro-box {
+  flex-basis: 30%; 
+  box-sizing: border-box;
+  border: 2px solid white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin: 0.5rem 0;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  text-align: center;
+  display: inline-block;
+  vertical-align: top;
 }
 
 .category {
   display: center;
   font-weight: bold;
-  color: darkgray;
   font-size: large;
-  text-decoration: underline rgb(91, 90, 90);
   font-style: italic;
+  background-image: linear-gradient(to right, rgb(213, 83, 104), rgb(192, 52, 192));
+  -webkit-background-clip: text; 
+  background-clip: text; 
+  color: transparent;
 }
 
 .cat__content {
   display: block;
   text-align: center;
   margin-top: 0.5rem;
-  margin-left: 13rem;
-  margin-right: 13rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .cat-content {
@@ -62,8 +91,13 @@
 
 .carousel__title {
   margin-top: 2rem;
+  margin-bottom: 1rem;
   color: darkgray;
   font-size: large;
+  background-image: linear-gradient(to right, rgb(213, 83, 104), rgb(192, 52, 192));
+  -webkit-background-clip: text; 
+  background-clip: text; 
+  color: transparent;
 }
 
 .healthfacts__carousel {
