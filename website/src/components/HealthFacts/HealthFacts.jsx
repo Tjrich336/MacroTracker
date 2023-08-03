@@ -133,7 +133,7 @@ function HealthFacts() {
             By maintaining a balanced diet within these recommended ranges, you can support your overall health and well-being while minimizing the risk of nutrient imbalances and chronic diseases associated with overconsumption and poor nutrition. It is important to consult with a healthcare professional or registered dietitian for personalized guidance based on your specific needs and health goals.
           </li>
         </ul>
-
+        <div className="carousel__container">
         <h3 className="carousel__title">Did you know?</h3>
         <div className={`healthfacts__carousel ${currentSlide === 0 ? '' : 'translate-left'} ${currentSlide === Math.ceil(facts.length / 3) ? '' : 'translate-right'}`}>
           {facts.slice(currentSlide * 3, currentSlide * 3 + 3).map((fact, index) => (
@@ -142,6 +142,7 @@ function HealthFacts() {
               <p className="healthfacts__fact-source">(Source: {fact.source})</p>
             </div>
           ))}
+        </div>
         </div>
 
         <div className="healthfacts__controls">

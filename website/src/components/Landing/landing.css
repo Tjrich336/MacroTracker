@@ -119,129 +119,93 @@ body {
 	opacity: 90%;
 }
 
-/* ...existing CSS... */
-
 /* ===================== BREAKPOINTS ===================== */
 
-/* For Extra Large Devices */
-@media screen and (min-width: 1200px) {
-	.container {
-		padding-top: 20px;
-	}
-}
-
-/* For Large Devices */
-@media screen and (max-width: 1199px) {
-	.container {
-		padding-top: 40px;
-	}
-	.landingTextBlock {
-		width: 400px;
-		height: 250px;
+/*      Tablet Devices      */
+@media screen and (min-width: 476px) and (max-width:999px) {
+	
+  }
+  
+/*        Mobile Devices      */
+@media screen and (max-width: 475px) {
+	body {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 
+	.container {
+		flex-direction: column; 
+		align-items: center;
+	  }
+	
 	.container_img {
-		width: 500px;
-		height: 450px;
+		width: 350px; 
+		height: 250px; 
+		overflow: hidden; 
+		flex: none; 
+		position: relative;
+		animation: levitate 2.5s infinite;
+		margin-left: 12rem;
+		margin-right: -12rem;
 	}
-
+	
 	.container_img img {
-		width: 100%;
-		height: 100%;
+		position: relative; 
+		top: 0; 
+		left: 0;
+		z-index: 1; 
+		margin-top: 2rem;
+	}
+	
+	.container_text {
+		margin-top: 2rem; 
 	}
 
+	.landingTitle {
+		font-size: 25px;
+		font-weight: bold;
+		text-align: center;
+		position: relative;
+		margin-left: 9rem;
+		margin-right: -9rem;
+	}
+	
+	.landingTitle::after {
+		content: "Discover a healthier you!";
+		position: absolute;
+		background: linear-gradient(to right, rgb(213, 83, 104), rgb(192, 52, 192));
+		background-clip: text;
+		color: transparent;
+		overflow: hidden;
+		white-space: nowrap;
+		animation: moveText 4s infinite;
+	}
+
+	.landingTextBlock {
+		font-size: medium;
+		font-weight: normal;
+		color: white;
+		text-align: center;
+		width: 300px;
+		height: auto;
+		padding-top: 10px;
+		padding-bottom: 25px;
+		margin-left: 9rem;
+		margin-right: -9rem;
+	}
+	
 	.login-button {
+		color: white;
+		background: linear-gradient(to right, rgb(213, 83, 104), rgb(192, 52, 192));
+		font-size: small;
+		font-weight: bolder;
+		border-radius: 0.5rem;
 		width: 120px;
-		height: 50px;
-	}
-}
-
-/* For Medium Devices */
-@media screen and (max-width: 991px) {
-	.container {
-		padding-top: 60px;
-	}
-	.landingTextBlock {
-		width: 300px;
-		height: 220px;
-		font-size: smaller;
-	}
-
-	.container_img {
-		width: 400px;
-		height: 350px;
-	}
-
-	.container_img img {
-		width: 100%;
-		height: 100%;
-	}
-
-	.login-button {
-		width: 60px;
-		height: 40px;
-		font-size: 10px;
-	}
-
-	h1 {
-		font-size: 20px;
-	}
-}
-
-/* For Small Devices */
-@media screen and (max-width: 767px) {
-	.container {
-		padding-top: 80px;
-	}
-	.landingTextBlock {
-		width: 200px;
-		height: 200px;
-		font-size: 10px;
-	}
-
-	h1 {
-		font-size: 15px;
-	}
-
-	.container_img {
-		width: 300px;
-		height: 250px;
-	}
-
-	.container_img img {
-		width: 100%;
-		height: 100%;
-	}
-
-	.login-button {
-		width: 50px;
-		height: 30px;
-		font-size: 8px;
-	}
-}
-
-/* For Extra Small Devices */
-@media screen and (max-width: 575px) {
-	.container {
-		padding-top: 100px;
-	}
-	.landingTextBlock {
-		width: 100%;
-		height: 80px;
-	}
-
-	.container_img {
-		width: 200px;
-		height: 150px;
-	}
-
-	.container_img img {
-		width: 100%;
-		height: 100%;
-	}
-
-	.login-button {
-		width: 60px;
-		height: 20px;
+		height: 60px;
+		box-shadow: inset 0 0 0 6px rgba(10, 10, 10, 0.433);
+		position: relative;
+		margin-left: 9rem;
+		margin-right: -9rem;
 	}
 }

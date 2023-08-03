@@ -208,3 +208,40 @@
 		transform: scale(1);
 	}
 }
+
+/* ===================== BREAKPOINTS ===================== */
+
+/*      Tablet Devices      */
+@media screen and (min-width: 476px) and (max-width:999px) {
+	
+}
+
+/*        Mobile Devices      */
+@media screen and (max-width: 475px) {
+  .userdashboard__title {
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 2rem;
+    background-image: linear-gradient(to right, rgb(213, 83, 104), rgb(192, 52, 192));
+    -webkit-background-clip: text; 
+    background-clip: text;
+    color: transparent; 
+    margin-left: 10rem;
+		margin-right: -10rem;
+  }
+  
+  
+  .userdashboard__subtitle {
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    background-image: linear-gradient(to right, rgb(213, 83, 104), rgb(192, 52, 192));
+    -webkit-background-clip: text; 
+    background-clip: text; 
+    color: transparent; 
+    margin-left: 10rem;
+		margin-right: -10rem;
+  }
+}

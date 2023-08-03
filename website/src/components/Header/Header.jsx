@@ -49,10 +49,6 @@ function Header() {
     setShowLogoutPrompt(false);
   };
 
-  const handleTabClick = (tab) => {
-    setActiveTab(tab);
-  }
-
   return (
     <header className="header">
       <nav className="nav container">
