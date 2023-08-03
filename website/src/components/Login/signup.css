@@ -95,27 +95,26 @@
   .signup__title {
     font-size: 35px;
     font-weight: bold;
-    text-align: center;
-    margin-top: 2rem;
-    background-image: linear-gradient(to right, rgb(213, 83, 104), rgb(192, 52, 192));
-    -webkit-background-clip: text; 
-    background-clip: text;
-    color: transparent; 
-    margin-left: 10rem;
-		margin-right: -10rem;
+    margin-top: 10rem;
+    margin-left: 0.25rem;
+	margin-right: -0.25rem;
   }
-  
   
   .signup__subtitle {
     font-size: 15px;
     font-weight: bold;
-    text-align: center;
-    display: block;
-    background-image: linear-gradient(to right, rgb(213, 83, 104), rgb(192, 52, 192));
-    -webkit-background-clip: text; 
-    background-clip: text; 
-    color: transparent; 
-    margin-left: 10rem;
-		margin-right: -10rem;
+    margin-left: 0.25rem;
+	margin-right: -0.25rem;
+  }
+
+  .signup {
+    font-size: large;
+  }
+
+  .login__main-box {
+    margin-left: 0rem !important;
+    margin-right: -0rem !important;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }

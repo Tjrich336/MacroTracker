@@ -27,7 +27,7 @@ function About() {
       <span className="about__subtitle">Contact</span>
 
       <div className="about__content">
-        <h3 className="content__title">Our Mission</h3>
+        <h3 className="about-content__title">Our Mission</h3>
           <p className="content">
             At Macro Tracker, we are passionate about health and well-being. In today's world, where rapid health decline has become a concerning trend, we believe in taking proactive steps to improve our lives. That's why we created Macro Tracker – to provide a powerful tool for tracking your macronutrient intake and promoting a balanced lifestyle.
             Our goal is to empower individuals to make informed choices about their nutrition, fitness, and overall health. By understanding and monitoring macronutrients, you can optimize your diet, achieve your health goals, and prevent various chronic diseases.

@@ -20,7 +20,7 @@
     color: transparent; 
 }
 
-.content__title {
+.about-content__title {
     margin-top: 3rem;
     font-size: large;
     font-weight: bold;
@@ -147,41 +147,33 @@
 @media screen and (max-width: 475px) {
   .about__title {
     font-size: 35px;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 2rem;
-    background-image: linear-gradient(to right, rgb(213, 83, 104), rgb(192, 52, 192));
-    -webkit-background-clip: text; 
-    background-clip: text;
-    color: transparent; 
-    margin-left: 10rem;
-		margin-right: -10rem;
+    margin-top: 6rem;
+    margin-left: 0.5rem !important;
+		margin-right: -0.5rem !important;
   }
   
   .about__subtitle {
     font-size: 15px;
-    font-weight: bold;
-    text-align: center;
-    display: block;
-    background-image: linear-gradient(to right, rgb(213, 83, 104), rgb(192, 52, 192));
-    -webkit-background-clip: text; 
-    background-clip: text; 
-    color: transparent; 
-    margin-left: 10rem;
-	margin-right: -10rem;
+    margin-left: 0.5rem !important;
+		margin-right: -0.5rem !important;
   }
 
-  .content__title {
-    margin-left: 9rem !important;
+  .about-content__title {
+    margin-top: 3rem;
+    margin-left: 0.5rem !important;
+		margin-right: -0.5rem !important;
   }
 
   .content {
-    color: white;
-    text-align: center;
     margin-top: 1rem;
-    width: 300px;
-    margin-left: 15.5rem;
-    margin-right: -15.5rem;
+    font-size: medium;
+    width: 60%;
+		height: auto;
+    margin-left: 6.5rem !important;
+		margin-right: -6.5rem !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .team {
@@ -189,9 +181,10 @@
     font-size: medium;
     font-weight: bold;
     text-align: center;
-    width: 300px;
-    margin-left: 15.5rem;
-    margin-right: -15.5rem;
+    width: 60%;
+		height: auto;
+    margin-left: 6.5rem !important;
+		margin-right: -6.5rem !important;
   }
 
   .team__content {
@@ -199,9 +192,10 @@
     font-size: small;
     text-align: center;
     color: white;
-    width: 300px;
-    margin-left: 15.5rem;
-    margin-right: -15.5rem;
+    width: 60%;
+		height: auto;
+    margin-left: 6.5rem !important;
+		margin-right: -6.5rem !important;
   }
 
   .disclaimer {
@@ -209,93 +203,62 @@
     font-size: medium;
     font-weight: bold;
     text-align: center;
-    width: 300px;
-    margin-left: 15.5rem;
-    margin-right: -15.5rem;
+    margin-left: 0.5rem !important;
+		margin-right: -0.5rem !important;
   }
 
   .disclaimer__content {
-    color: white;
-    text-align: center;
-    font-size: smaller;
-    margin-top: 0.5rem;
-    width: 300px;
-    margin-left: 15.5rem;
-    margin-right: -15.5rem;
+    margin-top: 1rem;
+    font-size: small;
+    width: 60%;
+		height: auto;
+    margin-left: 6.5rem !important;
+		margin-right: -6.5rem !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .contact {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    font-size: xx-large;
-    font-weight: bold;
-    text-align: center;
-    background-image: linear-gradient(to right, rgb(213, 83, 104), rgb(192, 52, 192));
-    -webkit-background-clip: text; 
-    background-clip: text; 
-    color: transparent;
-  }
-
-  .contact {
-    margin-left: 12rem;
-    margin-right: -12rem;
+    font-size: 25px;
+    margin-left: 0.5rem;
+    margin-right: -0.5rem;
   }
 
   .form {
+    width: 60%;
+		height: auto;
+    margin-left: 6.5rem !important;
+		margin-right: -6.5rem !important;
     display: flex;
-    flex-direction:column;
-    border: 1px solid black;
-    border-radius: 0.5rem;
-    padding: 40px;
-    width: 400px;
-    margin: 0 auto;
-    background: rgb(36, 36, 36);
-    box-shadow: inset 0 0 0 4px darkgray;
-    margin-left: 12rem;
-    margin-right: -12rem;
+    flex-direction: column;
+    align-items: center;
   }
 
   .userName {
     margin-top: -1rem;
     padding-left: 1rem;
-    padding-right: 10rem;
-    border-radius: 0.5rem;
-    border-color: black;
-    background-color: black;
-    color: white;
+    padding-right: 1rem;
 }
 
   .userEmail {
     margin-top: 1rem;
     padding-left: 1rem;
-    padding-right: 10rem;
-    border-radius: 0.5rem;
-    border-color: black;
-    background-color: black;
-    color: white;
+    padding-right: 1rem;
   }
 
   .userMessage {
     margin-top: 1rem;
     padding-bottom: 3rem;
     padding-left: 1rem;
-    padding-right: 10rem;
-    border-radius: 0.5rem;
-    border-color: black;
-    background-color: black;
-    color: white;
+    padding-right: 1rem;
   }
 
   .send__button {
     margin-top: 1rem;
     margin-bottom: -1rem;
-    margin-left: 6rem;
-    margin-right: 6rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
     padding: 0.25rem;
-    border-radius: 0.5rem;
-    box-shadow: inset 0 0 0 2px black;
-    background: linear-gradient(to right, rgb(213, 83, 104),rgb(192, 52, 192));
-    color: white;
-    font-weight: bold;
   }
 }
