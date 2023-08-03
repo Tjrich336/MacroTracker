@@ -221,27 +221,47 @@
   .userdashboard__title {
     font-size: 35px;
     font-weight: bold;
-    text-align: center;
-    margin-top: 2rem;
-    background-image: linear-gradient(to right, rgb(213, 83, 104), rgb(192, 52, 192));
-    -webkit-background-clip: text; 
-    background-clip: text;
-    color: transparent; 
-    margin-left: 10rem;
-		margin-right: -10rem;
+    margin-top: 6rem;
+	margin-left: 0rem !important;
+	margin-right: 0rem !important;
   }
   
-  
-  .userdashboard__subtitle {
+  .signedInAs {
     font-size: 15px;
     font-weight: bold;
-    text-align: center;
-    display: block;
-    background-image: linear-gradient(to right, rgb(213, 83, 104), rgb(192, 52, 192));
-    -webkit-background-clip: text; 
-    background-clip: text; 
-    color: transparent; 
-    margin-left: 10rem;
-		margin-right: -10rem;
+	margin-left: 0rem !important;
+	margin-right: 0rem !important;
+  }
+
+  .button_container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: -0.5rem !important;
+	margin-right: 0rem !important;
+  }
+
+  .button_item {
+	height: 5rem;
+	width: 5rem;
+  }
+
+  .modal__overlay {
+	margin-top: 8rem;
+  }
+
+  .macro-goals-container {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 10px;
+  	justify-content: center;
+  	align-items: center;
+	margin-left: 0rem !important;
+	margin-right: 0rem !important;
+  }
+
+  .table-container {
+	overflow-x: auto;
   }
 }

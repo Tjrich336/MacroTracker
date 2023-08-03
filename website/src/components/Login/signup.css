@@ -96,15 +96,11 @@
     font-size: 35px;
     font-weight: bold;
     margin-top: 10rem;
-    margin-left: 0.25rem;
-	margin-right: -0.25rem;
   }
   
   .signup__subtitle {
     font-size: 15px;
     font-weight: bold;
-    margin-left: 0.25rem;
-	margin-right: -0.25rem;
   }
 
   .signup {
@@ -112,8 +108,8 @@
   }
 
   .login__main-box {
-    margin-left: 0rem !important;
-    margin-right: -0rem !important;
+    margin-left: 1.5rem !important;
+    margin-right: -1rem !important;
     padding-left: 2rem;
     padding-right: 2rem;
   }

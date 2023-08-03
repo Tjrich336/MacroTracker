@@ -45,3 +45,11 @@
 .modal .simple-bar-chart {
 	/* SimpleBarChart styles when inside the modal */
 }
+
+
+/*        Mobile Devices      */
+@media screen and (max-width: 475px) {
+	.modal {
+		margin-top: 6rem;
+	}
+}

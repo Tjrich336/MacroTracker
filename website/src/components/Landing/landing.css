@@ -122,18 +122,12 @@ body {
 /* ===================== BREAKPOINTS ===================== */
 
 /*      Tablet Devices      */
-@media screen and (min-width: 476px) and (max-width:999px) {
+@media screen and (min-width: 1000px) and (max-width: 1500px) {
 	
   }
   
 /*        Mobile Devices      */
 @media screen and (max-width: 475px) {
-	body {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-
 	.container {
 		flex-direction: column; 
 		align-items: center;
@@ -142,8 +136,8 @@ body {
 	.container_img {
 		width: 350px; 
 		height: 250px; 
-		margin-left: 2.5rem;
-		margin-right: -2.5rem;
+		margin-left: 1.5rem;
+		margin-right: -1.5rem;
 	}
 	
 	.container_img img {
@@ -163,23 +157,23 @@ body {
 		font-weight: bold;
 		text-align: center;
 		position: relative;
-		margin-left: -0.5rem;
-		margin-right: 0.5rem;
+		margin-left: -1.5rem;
+		margin-right: 1.5rem;
 	}
 
 	.landingTextBlock {
 		width: 300px;
 		height: auto;
-		margin-left: -0.5rem;
-		margin-right: 0.5em;
+		margin-left: -1.5rem;
+		margin-right: 1.5em;
 	}
 	
 	.login-button {
 		font-size: small;
 		width: 120px;
 		height: 60px;
-		margin-left: -1rem;
-		margin-right: 1rem;
+		margin-left: -1.5rem;
+		margin-right: 1.5rem;
 		margin-bottom: -4rem;
 	}
 }

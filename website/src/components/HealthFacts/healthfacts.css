@@ -151,47 +151,38 @@
   .healthfacts__title {
     font-size: 35px;
     margin-top: 6rem;
-    margin-left: 0.5rem;
-		margin-right: -0.5rem;
   }
   
   
   .healthfacts__subtitle {
     font-size: 15px;
-    margin-left: 0.5rem;
-		margin-right: -0.5rem;
   }
 
   .content__title {
     margin-top: 3rem;
-    margin-left: 0.5rem !important;
-		margin-right: -0.5rem !important;
     font-size:15px;
   }
   
   .healthfacts__content {
     margin-top: 1rem;
     font-size: medium;
-    width: 60%;
-		height: auto;
-    margin-left: 6.5rem !important;
-		margin-right: -6.5rem !important;
+    flex: none;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+ 
   }
 
   .macro-box {
-    flex-basis: 80%; 
+    flex-basis: 100%; 
     box-sizing: border-box;
     border: 2px solid white;
+    width: 250px;
     padding: 1rem;
     border-radius: 0.5rem;
     margin: 0.5rem 0;
     margin-top: 2rem;
-    margin-bottom: 2rem;
-    margin-right: -2rem;
-    margin-left: 2rem;
     text-align: center;
     display: inline-block;
     vertical-align: top;
@@ -200,20 +191,15 @@
   .carousel__title {
     margin-top: 1rem;
     margin-bottom: 1rem;
-    margin-left: 0.25rem;
-    margin-right: -0.25rem;
   }
 
   .carousel__container {
-    width: 120%;
+    width: 320px;
     margin-top: 2rem;
-    margin-left: 0rem;
-    margin-right: -0rem;
     display: table-row;
   }
   
   .healthfacts__fact {
-    width: 30%;
     box-sizing: border-box;
     border: 2px solid white;
     padding: 1rem;
