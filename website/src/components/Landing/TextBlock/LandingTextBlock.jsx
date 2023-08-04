@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const LandingTextBlock = ({className}) => {
   return (
@@ -9,7 +9,7 @@ const LandingTextBlock = ({className}) => {
     profile, set personalized goals, and receive tailored recommendations to
     fill any gaps in your diet.
     Start your journey towards a vibrant and nourished self today!</h2>
-  )
+  );
 }
 
-export default LandingTextBlock
+export default LandingTextBlock;

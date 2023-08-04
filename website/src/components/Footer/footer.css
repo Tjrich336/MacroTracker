@@ -34,7 +34,7 @@
 /* Mobile Devices */
 @media screen and (max-width: 475px) {
   .footer {
-    position: fixed;
+    margin-bottom: -3rem;
     bottom: 0;
     left: 0;
     width: 100%;

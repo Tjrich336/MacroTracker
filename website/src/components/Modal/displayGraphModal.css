@@ -46,7 +46,6 @@
 	}
 
 	.bar-chart {
-		width: auto;
-		height: auto;
+		display: none;
 	}
 }
