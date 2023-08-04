@@ -160,7 +160,7 @@
 
   .content__title {
     margin-top: 3rem;
-    font-size:15px;
+    font-size: 15px;
   }
   
   .healthfacts__content {
@@ -171,7 +171,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
- 
   }
 
   .macro-box {

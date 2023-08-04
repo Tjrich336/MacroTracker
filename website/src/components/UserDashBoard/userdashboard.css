@@ -257,11 +257,16 @@
 	grid-gap: 10px;
   	justify-content: center;
   	align-items: center;
-	margin-left: 0rem !important;
-	margin-right: 0rem !important;
   }
 
-  .table-container {
-	overflow-x: auto;
+  .food-items-table th,
+  .food-items-table td {
+	padding-left: 0.3rem;
+	padding-right: 0.3rem;
+  }
+
+  .removefoodbutton {
+	font-size: 12px;
+	width: 5rem;
   }
 }

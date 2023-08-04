@@ -32,4 +32,4 @@ const DisplayGraphModal = ({handleClose, show, data, goal}) => {
     )
 }
 
-export default DisplayGraphModal
+export default DisplayGraphModal;

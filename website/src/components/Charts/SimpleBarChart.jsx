@@ -1,7 +1,8 @@
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import "../Modal/displayGraphModal.css";
 
-const SimpleBarChart = ({ data, goal }) => {
+const SimpleBarChart = ({ data, goal, width }) => {
   const chartData = [
     { name: 'Fats', Value: data.fat, Goal: goal.fats},
     { name: 'Protein', Value: data.protein, Goal: goal.protein},
@@ -9,6 +10,7 @@ const SimpleBarChart = ({ data, goal }) => {
   ];
 
   return (
+    <div className="bar-chart">
       <BarChart 
         data={chartData} 
         width={500}
@@ -23,7 +25,7 @@ const SimpleBarChart = ({ data, goal }) => {
         <Bar dataKey="Value" fill="#fd0230" isAnimationActive={true} animationDuration={1000} />
         <Bar dataKey="Goal" fill="#49a9fc" isAnimationActive={true} animationDuration={1750}/>
       </BarChart>
-    
+    </div>
   );
 };
 

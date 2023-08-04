@@ -161,12 +161,13 @@
   .content {
     margin-top: 1rem;
     font-size: medium;
-    width: 50%;
+    flex: none;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-left: 7.5rem !important;
+    margin-left: 2rem;
+    margin-right: 2rem;
   }
 
   .team {
@@ -174,9 +175,6 @@
     font-size: medium;
     font-weight: bold;
     text-align: center;
-    width: 60%;
-		height: auto;
-    margin-left: 6rem !important;
   }
 
   .team__content {
@@ -184,9 +182,6 @@
     font-size: small;
     text-align: center;
     color: white;
-    width: 60%;
-		height: auto;
-    margin-left: 6rem !important;
   }
 
   .disclaimer {
@@ -199,12 +194,12 @@
   .disclaimer__content {
     margin-top: 1rem;
     font-size: small;
-    width: 60%;
 		height: auto;
-    margin-left: 6rem !important;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-left: 2rem;
+    margin-right: 2rem;
   }
 
   .contact {
@@ -212,24 +207,24 @@
   }
 
   .form {
-    width: 60%;
-		height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 6rem;
+    width: fit-content;
   }
 
   .userName {
     margin-top: -1rem;
     padding-left: 1rem;
     padding-right: 1rem;
-}
+    width: 250px;
+  }
 
   .userEmail {
     margin-top: 1rem;
     padding-left: 1rem;
     padding-right: 1rem;
+    width: 250px;
   }
 
   .userMessage {
@@ -237,6 +232,7 @@
     padding-bottom: 3rem;
     padding-left: 1rem;
     padding-right: 1rem;
+    width: 250px;
   }
 
   .send__button {

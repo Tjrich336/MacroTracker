@@ -38,18 +38,15 @@
 	cursor: pointer;
 }
 
-.modal .pie-chart {
-	/* PieChart styles when inside the modal */
-}
-
-.modal .simple-bar-chart {
-	/* SimpleBarChart styles when inside the modal */
-}
-
-
 /*        Mobile Devices      */
 @media screen and (max-width: 475px) {
 	.modal {
 		margin-top: 6rem;
+		width: 80%;
+	}
+
+	.bar-chart {
+		width: auto;
+		height: auto;
 	}
 }
