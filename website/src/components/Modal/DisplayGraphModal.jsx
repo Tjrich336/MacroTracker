@@ -23,7 +23,7 @@ const DisplayGraphModal = ({handleClose, show, data, goal}) => {
                 <div className="modal">
                         <h3>Pie Chart</h3>
                         <PieChart data={data}></PieChart>
-                        <h3>Bar Chart</h3>
+                        <h3 className="bar-chart">Bar Chart</h3>
                         <SimpleBarChart data={data} goal={goal}></SimpleBarChart>
                         <button className='closeButton' onClick={handleClose}>Close</button>
                 </div>

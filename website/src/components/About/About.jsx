@@ -34,18 +34,18 @@ function About() {
             Join us on this journey towards better health and well-being. Together, we can make positive changes and inspire others to prioritize their health in the face of the global health challenges we currently face.
           </p>
 
-        <h4 className="disclaimer">Disclaimer</h4>
+          <h4 className="team">Development Team</h4>
+            <p className="team__content">Trevor Richardson</p>
+            <p className="team__content">Orin Sparks</p>
+            <p className="team__content">Brandon Hach</p>
+
+        <h5 className="disclaimer">Disclaimer</h5>
           <p className="disclaimer__content">The information provided on this website is for general informational purposes only and should not be considered as a substitute for professional medical advice. Consult a healthcare professional for personalized advice regarding your dietary needs and health conditions.
             The macro tracking data presented on this website are based on general guidelines and may not be suitable for everyone. Individual nutritional needs can vary. Use this information at your own risk and consult a registered dietitian for personalized guidance.
             While we strive to provide accurate information, we make no warranties regarding the completeness, accuracy, or reliability of the data. We are not liable for any loss or damage arising from the use of this website or reliance on the information provided.
             The accuracy of macro tracking data can vary based on factors such as data entry and food preparation methods. Always cross-reference the information and consult a healthcare professional before making significant dietary changes.
             By using this website, you acknowledge and accept this disclaimer. If you do not agree, please refrain from using our website.
           </p>
-
-          <h5 className="team">Development Team</h5>
-            <p className="team__content">Trevor Richardson</p>
-            <p className="team__content">Orin Sparks</p>
-            <p className="team__content">Brandon Hach</p>
 
           <h6 className="contact">Reach Out!</h6>
           <form ref={form} onSubmit={sendEmail} className="form">

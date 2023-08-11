@@ -3,14 +3,13 @@ import './landing.css';
 import futuristicHealth from '../../assets/futuristicHealth.png';
 import LandingTextBlock from "./TextBlock/LandingTextBlock";
 
-const Landing = () => {
+function Landing () {
   const handleButtonClick = () => {
     window.location.href = '/signup';
   };
   
 
   return (
-    <body>
       <section className="landing section" id="landing">
         <div className="container">
           <div className="container_img"><img src={futuristicHealth} alt="" /></div>
@@ -21,9 +20,7 @@ const Landing = () => {
           </div>
         </div>
       </section>
-    </body>
-
   );
-};
+}
 
 export default Landing;

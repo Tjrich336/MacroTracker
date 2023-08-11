@@ -131,31 +131,37 @@
 }
 
 /* ===================== BREAKPOINTS ===================== */
-
 /*      Tablet Devices      */
-@media screen and (min-width: 476px) and (max-width:999px) {
-	
+@media screen and (min-width: 1000px) and (max-width: 1500px) {
+    .nav__list {
+        margin-left: 40rem;
+        margin-top: -2rem;
+    }
+
+    .nav__logo {
+        margin-top: 0rem;
+    }
 }
 
-/* Mobile Devices */
+/*      Mobile Devices      */
 @media screen and (max-width: 475px) {
     .nav {
         display: flex;
         flex-direction: column;
         align-items: center;
         margin-top: 2rem !important;
-        margin-left: 0rem;
+        margin-left: -0.75rem;
     }
     
     .nav__logo,
     .nav__toggle {
         margin-right: 0;
-        margin-left: 0;
+        margin-left: 0rem;
     }
     
     .nav__list {
         margin-top: 1rem;
-        margin-left: 0;
+        margin-left: 0rem;
         margin-right: 0;
     }
 
