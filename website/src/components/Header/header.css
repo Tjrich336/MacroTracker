@@ -132,7 +132,7 @@
 
 /* ===================== BREAKPOINTS ===================== */
 /*      Tablet Devices      */
-@media screen and (min-width: 1000px) and (max-width: 1500px) {
+@media screen and (min-width: 700px) and (max-width: 1000px) {
     .nav__list {
         margin-left: 40rem;
         margin-top: -2rem;
