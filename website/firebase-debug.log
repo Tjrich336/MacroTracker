@@ -1,0 +1,44 @@
+[debug] [2023-08-11T02:03:51.513Z] ----------------------------------------------------------------------
+[debug] [2023-08-11T02:03:51.515Z] Command:       /usr/local/bin/node /Users/Trevor/.npm-global/bin/firebase init
+[debug] [2023-08-11T02:03:51.515Z] CLI Version:   12.4.7
+[debug] [2023-08-11T02:03:51.515Z] Platform:      darwin
+[debug] [2023-08-11T02:03:51.515Z] Node Version:  v18.12.1
+[debug] [2023-08-11T02:03:51.516Z] Time:          Thu Aug 10 2023 22:03:51 GMT-0400 (Eastern Daylight Time)
+[debug] [2023-08-11T02:03:51.516Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-08-11T02:03:51.544Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-08-11T02:03:51.544Z] > authorizing via signed-in user (devbytrev@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/Trevor/Documents/MacroTracker/MacroTracker/website
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2023-08-11T02:03:57.142Z] Using project from CLI flag: macrotracker-27770
+[debug] [2023-08-11T02:03:57.145Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/macrotracker-27770 [none]
+[debug] [2023-08-11T02:03:57.542Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/macrotracker-27770 200
+[debug] [2023-08-11T02:03:57.542Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/macrotracker-27770 {"projectId":"macrotracker-27770","projectNumber":"499449358808","displayName":"MacroTracker","name":"projects/macrotracker-27770","resources":{"hostingSite":"macrotracker-27770","realtimeDatabaseInstance":"macrotracker-27770-default-rtdb","storageBucket":"macrotracker-27770.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_0a90fd37-11ed-4629-86df-3808ea114b02"}
+[info] i  Using project macrotracker-27770 (MacroTracker) 
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
